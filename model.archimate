@@ -189,6 +189,25 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:DataObject" name="A-DAT-7 Compliance Reports &amp; Evidence" id="id-1543572be80e4c3fb376b02a0f249b6a"/>
     <element xsi:type="archimate:DataObject" name="A-DAT-8 Signed Artifacts / Manifests" id="id-50256878161f4f5fa016b098ac3d7435"/>
     <element xsi:type="archimate:DataObject" name="A-DAT-3 Key Material (Secure Ref / Handle)" id="id-14a335ef590545d68f4209e10bbfcf17"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-1 Libcrux" id="id-c2d42addc209424184921f7f6492a5ae">
+      <documentation>Rust-based</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-2 BoringSSL" id="id-e3ca389c8b264967923bfdd20bb27175"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-3 LibreSSL" id="id-145e1924c158486d89dbef50610b563e"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-4 OpenSSL" id="id-52f11d0662374d328fa747694a3b223c"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-5 WolfSSL" id="id-55c68294b1164df09a2cc5339b8bfb9e"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-6 Cryptlib" id="id-945723fb68a9492094699a0bd1e1b714"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-7 NSS" id="id-90f6c35ce70b4b11b43f2cba027d9b39"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-8 Java JCA, JCE" id="id-b738c37bc3a346bf919b201ce4a0a700"/>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-9 Cryspen" id="id-7e2390d0331b4ee5a4beae88bd4492f3">
+      <documentation>(company) – Formally verified cryptographic libs. Hacspec (DSL) and libcrux.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-10 Liboqs" id="id-44133d8bd44d45b981d05371ef324407">
+      <documentation>C-based API.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-11Oqsprovider" id="id-3ed3c9e4e26b403292ab528c1e926be5">
+      <documentation>Extends OpenSSL3.</documentation>
+    </element>
   </folder>
   <folder name="Technology &amp; Physical" id="id-5a19f96b800b494a8d2d4f619213909b" type="technology">
     <element xsi:type="archimate:SystemSoftware" name="Service Mesh (Sidecar / Gateway) " id="id-3db3a9ddfdd546a1a4310cc92ad027dd">
@@ -296,6 +315,12 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     </element>
     <element xsi:type="archimate:Assessment" name="M-AS-9 Data in transit attack" id="id-6024bbd1895e4d428d3533325a8d4c81">
       <documentation>Capturing network traffic and decrypting it (elsewhere).</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="M-PR-2 MemorySafe principle" id="id-319cc33056684fc0a3c0dfc87aa622f1"/>
+    <element xsi:type="archimate:Principle" name="M-PR-3 Hybrid configuration" id="id-dccd42eab8e14e77928a94151027e313"/>
+    <element xsi:type="archimate:Principle" name="M-PR-4 Backward Compatibility" id="id-5ed612098ec24d5db0c894b8c9b9afe3"/>
+    <element xsi:type="archimate:Principle" name="M-PR-5 Shadow module architecture" id="id-8ba04c51344545f796d7d8dcc1bd2682">
+      <documentation>Crypto ops are delegated to external libs rather than being implemented within the token itself. This promotes modularity, and simplifies updates.</documentation>
     </element>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
