@@ -65,9 +65,9 @@ o	Use Qryptotoken, a modular, PKCS#11-based  loadable software token &#xD;
 o	Use oqsprovider&#xD;
 </documentation>
     </element>
-    <element xsi:type="archimate:Resource" name="ST-RES-ALG-1 RSA" id="id-3acbf6c579eb448fa9bf58f0304aa735"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-ALG-1 RSA 2048" id="id-3acbf6c579eb448fa9bf58f0304aa735"/>
     <element xsi:type="archimate:Resource" name="ST-RES-ALG-2 ECDH" id="id-4cb5c8cc7a68438ca3ac3b0857d94b12"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PTC-1 TLS" id="id-1d4812efb953426698ca21991320b0a7"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PTC-1 TLS 1.3" id="id-1d4812efb953426698ca21991320b0a7"/>
     <element xsi:type="archimate:Resource" name="ST-RES-PTC-2 IPSEC" id="id-d65f0b602ef547bbaf03a022ef16efdb"/>
     <element xsi:type="archimate:Resource" name="ST-RES-PTC-3 KMIP" id="id-bea3d1640d1c418fa9dcb2931312380c"/>
   </folder>
