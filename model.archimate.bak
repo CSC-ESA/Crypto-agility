@@ -39,7 +39,7 @@ Sequenced actions to prepare, discover, test, migrate, and monitor; aligns with 
     <element xsi:type="archimate:CourseOfAction" name="ST-COA-6 Algorithm Independent APIs" id="id-57896d240f4649b9a98735969a08b4f0">
       <documentation>Replace hard coded crypto calls with interfaces independent of algorithm choice.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-7 Incremental Component Replacement" id="id-b180ae69ad6a449ca133011038ce5819">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-7 Incremental Component Replacement " id="id-b180ae69ad6a449ca133011038ce5819">
       <documentation>Swap cryptographic modules piece by piece without full system downtime.</documentation>
     </element>
     <element xsi:type="archimate:CourseOfAction" name="ST-COA-8 Fallback &amp; Rollback Mechanisms" id="id-c62fbb0c9e1344b1bfe37c353d6173b8">
@@ -59,7 +59,12 @@ Sequenced actions to prepare, discover, test, migrate, and monitor; aligns with 
 </documentation>
     </element>
     <element xsi:type="archimate:CourseOfAction" name="ST-COA-13 Pre-shared Symmetric Keys" id="id-14abdadc2ac7490aa6ecab0cbd99b6bd"/>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-14 Indirection Layer" id="id-b66c0b6e74a041938093450b26c4d92a"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-14 Indirection Layer" id="id-b66c0b6e74a041938093450b26c4d92a">
+      <documentation>Create an indirection layer: PKCS#11&#xD;
+o	Use Qryptotoken, a modular, PKCS#11-based  loadable software token &#xD;
+o	Use oqsprovider&#xD;
+</documentation>
+    </element>
   </folder>
   <folder name="Business" id="id-51e7fd7c655c4897b747e6dc1931e1f8" type="business">
     <element xsi:type="archimate:BusinessRole" name="B-ROL-1 CISO / Crypto Owner" id="id-bd9e9293260347e8bf797116dbb20fb6">
