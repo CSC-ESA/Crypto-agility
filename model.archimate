@@ -71,6 +71,9 @@ o	Use oqsprovider&#xD;
     <element xsi:type="archimate:Resource" name="ST-RES-PTC-1 TLS 1.3" id="id-1d4812efb953426698ca21991320b0a7"/>
     <element xsi:type="archimate:Resource" name="ST-RES-PTC-2 IPSEC" id="id-d65f0b602ef547bbaf03a022ef16efdb"/>
     <element xsi:type="archimate:Resource" name="ST-RES-PTC-3 KMIP" id="id-bea3d1640d1c418fa9dcb2931312380c"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 203" id="id-41956e5d4eeb4ce08bcd106b95789a7a"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 204" id="id-af6f212e14ec4329aa5b84c1c8351bcd"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 205" id="id-f6ce94fdf1cd40f4a88aaf157bbf1f9b"/>
   </folder>
   <folder name="Business" id="id-51e7fd7c655c4897b747e6dc1931e1f8" type="business">
     <element xsi:type="archimate:BusinessRole" name="B-ROL-1 CISO / Crypto Owner" id="id-bd9e9293260347e8bf797116dbb20fb6">
