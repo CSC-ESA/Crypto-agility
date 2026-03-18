@@ -107,6 +107,9 @@ o	Use oqsprovider&#xD;
     <element xsi:type="archimate:BusinessObject" name="B-OBJ-3 Crypto Asset Inventory" id="id-a27df948b16546b1ae3ec10e0b24990f"/>
     <element xsi:type="archimate:BusinessObject" name="B-OBJ-4 Exception Register" id="id-e0205cc44deb467ea5f3ac6ad7a6403d"/>
     <element xsi:type="archimate:BusinessService" name="B-SRV-3 Application Crypto Onboarding Service" id="id-46bbcf94c2524fe4bf8ffb644d30802f"/>
+    <element xsi:type="archimate:BusinessRole" name="B-ROL-6 Information Security Officer" id="id-9195baf2c52940f8bf66b6d77260b385"/>
+    <element xsi:type="archimate:BusinessRole" name="B-ROL-7 InfoSec GRC Team" id="id-82e07b74c2cd47b5b579962e75121cae"/>
+    <element xsi:type="archimate:BusinessRole" name="B-ROL-8 Crypto Expert" id="id-e1837bd6820c4f99b3f06745d69bf721"/>
   </folder>
   <folder name="Application" id="id-f62e927c03fc4207876166daf6671e8b" type="application">
     <element xsi:type="archimate:ApplicationComponent" name="A-CMP-9 SBOM / SCA Scanner" id="id-d53e2e9129f24a6488df7d28886a7ca2"/>
