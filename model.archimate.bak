@@ -5,7 +5,8 @@
       <documentation>Ability to govern, discover, select, implement, monitor and migrate cryptography.&#xD;
 Note: Crypto Agility is the ability to replace/upgrade algorithms, parameters, and trust anchors without major redesigns or downtime (targets all layers). Guided by NIST’s Crypto Agility project. &#xD;
 &#xD;
-ST-CAP-1 is realized by Application &amp; Technology services later in the model.</documentation>
+ST-CAP-1 is realized by Application &amp; Technology services later in the model.&#xD;
+</documentation>
     </element>
     <element xsi:type="archimate:Resource" name="ST-RES-2 Crypto Risk Appetite" id="id-9a644fb4129f44b2b1bfaa72a02d07d9"/>
     <element xsi:type="archimate:Capability" name="ST-CAP-2 Secure DevSecOps Capability " id="id-b8b6374f02b44675a9955161e5aa03b7">
