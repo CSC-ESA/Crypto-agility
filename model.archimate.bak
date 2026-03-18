@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Crypto Agility" id="id-b26a0a64ac314319843668208a996e6e" version="5.0.0">
   <folder name="Strategy" id="id-52b3fa7e93934a9f96853d86fce26baa" type="strategy">
-    <element xsi:type="archimate:Capability" name="ST-CAP-1 Cryptography Management Capability " id="id-5b437792e0a04a448293d390f4129b46">
+    <element xsi:type="archimate:Capability" name="ST-CAP-1 Cryptography Management Capability" id="id-5b437792e0a04a448293d390f4129b46">
       <documentation>Ability to govern, discover, select, implement, monitor and migrate cryptography.&#xD;
 Note: Crypto Agility is the ability to replace/upgrade algorithms, parameters, and trust anchors without major redesigns or downtime (targets all layers). Guided by NIST’s Crypto Agility project. &#xD;
 &#xD;
