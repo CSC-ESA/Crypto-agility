@@ -316,15 +316,9 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Outcome" name="M-OUT Break/Replace Cost &amp; Time Reduced" id="id-1229011af7aa41f2ba6a1f3f616c09c6">
       <documentation>Material reduction in incident blast radius and migration timelines.</documentation>
     </element>
-    <element xsi:type="archimate:Requirement" name="M-RQ-1 Algorithm Independence" id="id-e2961fd6aad943969573bb890669b8c1">
-      <documentation>Applications use policies/abstractions, not hard-coded algorithms.</documentation>
-    </element>
-    <element xsi:type="archimate:Requirement" name="M-RQ-2 Complete Crypto Inventory " id="id-d6cbcbcc2f774a569920561577203c0c">
-      <documentation>Transparent, continuously updated inventory of crypto usage (algorithms, keys, certs, libs, endpoints).</documentation>
-    </element>
-    <element xsi:type="archimate:Requirement" name="M-RQ-3 Automated Lifecycle " id="id-9114219473d2483aa9db48086d2b50e8">
-      <documentation>Automated provisioning, rotation, renewal, and retirement of keys and certificates.</documentation>
-    </element>
+    <element xsi:type="archimate:Requirement" name="M-REQ Cryptographic Choices Shall Be Externalized and Configurable" id="id-e2961fd6aad943969573bb890669b8c1"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Quantum-Susceptible Algorithms Shall Be Removed from Critical Paths" id="id-d6cbcbcc2f774a569920561577203c0c"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Cryptographic Algorithms Shall Be Replaceable Without System Redesign" id="id-9114219473d2483aa9db48086d2b50e8"/>
     <element xsi:type="archimate:Constraint" name="M-CTR Approved-Only Crypto" id="id-39888757e009493dbf521020af66a9e1">
       <documentation>Only organization-approved algorithms, modes, parameters, and modules.</documentation>
     </element>
@@ -422,6 +416,11 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:Constraint" name="M-CTR Presence of Legacy Systems with Limited Cryptographic Flexibility" id="id-74e8a4b5a4814f859f467110d27aeea3"/>
     <element xsi:type="archimate:Constraint" name="M-CTR Interoperability with External Ecosystem and Legacy Counterparties" id="id-08ee7765afcd4e9f8436cb11a371a231"/>
     <element xsi:type="archimate:Constraint" name="M-CTR Mandatory Compliance with Applicable Cryptographic Regulations" id="id-7c435bac33034910b82ba957931099e2"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Long-Lived Confidential Data Shall Be Protected with Quantum-Resistant or Hybrid Mechanisms" id="id-36d045906074475196f44676ffb5d0eb"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ An Authoritative Enterprise Cryptographic Inventory Shall Be Maintained" id="id-fc1784f3c91242c2bfb17260a8e18fdc"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Key, Certificate, and Algorithm Lifecycles Shall Be Centrally Governed" id="id-c0de9b8e5c4f4d908633569a6dadd78c"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Standards-Based PQC/Hybrid Mechanisms Shall Be Supported for External Interoperability" id="id-30e06a1774e74eee94964d74493d8982"/>
+    <element xsi:type="archimate:Requirement" name="M-REQ Cryptographic Controls Shall Produce Verifiable Compliance Evidence" id="id-49c077889c0c461696550fb52e31b9c1"/>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
     <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>

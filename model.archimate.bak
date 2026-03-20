@@ -331,32 +331,32 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Principle" name="M-PCP Secure by Default " id="id-295cc5962f224121874464f8dd26d381">
       <documentation>Defaults prefer strongest available crypto; downgrades require governance exceptions.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-1 Current Crypto Exposure " id="id-df81e7b2d9eb423992542d9af68adff6">
+    <element xsi:type="archimate:Assessment" name="M-ASS Current Crypto Exposure " id="id-df81e7b2d9eb423992542d9af68adff6">
       <documentation>Baseline of vulnerable algorithms and endpoints.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-2 Harvest Now Decrypt Later" id="id-b34c1bd91f6440d3abdb671f6ebd2f60">
+    <element xsi:type="archimate:Assessment" name="M-ASS Harvest Now Decrypt Later" id="id-b34c1bd91f6440d3abdb671f6ebd2f60">
       <documentation>An adversary captures encrypted data today to decrypt it once a commercial CRQC is available.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-3 Trust Now Forge Later" id="id-54b4c92cd4b44f55911a7ed46020c0d2">
+    <element xsi:type="archimate:Assessment" name="M-ASS Trust Now Forge Later" id="id-54b4c92cd4b44f55911a7ed46020c0d2">
       <documentation>Malicious act of creating a fake digital signature to impersonate someone or manipulate data without authorization.&#xD;
 </documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-4 Malicious-signed software deployment" id="id-68464a73897f436aae4a533096cffc6d">
+    <element xsi:type="archimate:Assessment" name="M-ASS Malicious-signed software deployment" id="id-68464a73897f436aae4a533096cffc6d">
       <documentation>Installation of seamingly valid software signed by a digital signature counterfeit with a quantum computer.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-5 Remote attestation falsification" id="id-779bc9fdd87d4666b91359a7cac50a3b">
+    <element xsi:type="archimate:Assessment" name="M-ASS Remote attestation falsification" id="id-779bc9fdd87d4666b91359a7cac50a3b">
       <documentation>Spoofing a valid attestation response by exploiting quantum vulnerabilities, by altering transmission or computation on the attested system.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-6 Hybrid mode downgrade attack" id="id-700f988ffed1478e95d28071199c4ca4">
+    <element xsi:type="archimate:Assessment" name="M-ASS Hybrid mode downgrade attack" id="id-700f988ffed1478e95d28071199c4ca4">
       <documentation>During the transition, endpoints support both classical and PQC algorithms. This attack exploits this quality.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-7 Man in the Middle (MITM)" id="id-37605f25c9b245b988046fbf8f17cc24">
+    <element xsi:type="archimate:Assessment" name="M-ASS Man in the Middle (MITM)" id="id-37605f25c9b245b988046fbf8f17cc24">
       <documentation>A cyberattack where the attacker secretly relays and possibly alters the communication between two parties who believe they are genuinely communicating with each other, whereas the attacker has inserted themselves between the two.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-8 Data at rest attack" id="id-e4913d8bc5c54409a84ef024fb44a5b5">
+    <element xsi:type="archimate:Assessment" name="M-ASS Data at rest attack" id="id-e4913d8bc5c54409a84ef024fb44a5b5">
       <documentation>Copying encrypted data from the device and decrypting it elsewhere or encrypting the data to make it unusable.</documentation>
     </element>
-    <element xsi:type="archimate:Assessment" name="M-AS-9 Data in transit attack" id="id-6024bbd1895e4d428d3533325a8d4c81">
+    <element xsi:type="archimate:Assessment" name="M-ASS Data in transit attack" id="id-6024bbd1895e4d428d3533325a8d4c81">
       <documentation>Capturing network traffic and decrypting it (elsewhere).</documentation>
     </element>
     <element xsi:type="archimate:Principle" name="M-PCP Memory-Safety" id="id-319cc33056684fc0a3c0dfc87aa622f1"/>
