@@ -1,79 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Crypto Agility" id="id-b26a0a64ac314319843668208a996e6e" version="5.0.0">
   <folder name="Strategy" id="id-52b3fa7e93934a9f96853d86fce26baa" type="strategy">
-    <element xsi:type="archimate:Capability" name="ST-CAP-1 Cryptography Management Capability" id="id-5b437792e0a04a448293d390f4129b46">
-      <documentation>Ability to govern, discover, select, implement, monitor and migrate cryptography.&#xD;
-Note: Crypto Agility is the ability to replace/upgrade algorithms, parameters, and trust anchors without major redesigns or downtime (targets all layers). Guided by NIST’s Crypto Agility project. &#xD;
-&#xD;
-ST-CAP-1 is realized by Application &amp; Technology services later in the model.&#xD;
+    <element xsi:type="archimate:Capability" name="ST-CAP Cryptographic Governance &amp; Oversight" id="id-5b437792e0a04a448293d390f4129b46">
+      <documentation>•	Cryptographic Governance&#xD;
+•	Security Policy Management&#xD;
+•	Technology Portfolio Management&#xD;
+•	Vendor Security Management&#xD;
+•	Compliance Management&#xD;
 </documentation>
     </element>
-    <element xsi:type="archimate:Resource" name="ST-RES-2 Crypto Risk Appetite" id="id-9a644fb4129f44b2b1bfaa72a02d07d9"/>
-    <element xsi:type="archimate:Capability" name="ST-CAP-2 Secure DevSecOps Capability " id="id-b8b6374f02b44675a9955161e5aa03b7">
+    <element xsi:type="archimate:Resource" name="ST-RES Crypto Risk Appetite" id="id-9a644fb4129f44b2b1bfaa72a02d07d9"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Secure DevSecOps" id="id-b8b6374f02b44675a9955161e5aa03b7">
       <documentation>Integrates crypto policies, SBOM, code signing, SCA, and gate checks.</documentation>
     </element>
-    <element xsi:type="archimate:Resource" name="ST-RES-1 Crypto Governance Playbook" id="id-683112ceba2c4b709c3575aea9f3c141">
+    <element xsi:type="archimate:Resource" name="ST-RES Crypto Governance Playbook" id="id-683112ceba2c4b709c3575aea9f3c141">
       <documentation>Policies, standards, versioned patterns.&#xD;
 An organization’s stance on algorithm baselines (min key sizes, approved suites), supported hybrids, and exception handling. Informed by SP 800 52r2 and CNSA 2.0. &#xD;
-ST-RES-1 guides Application design-time and run-time selections.</documentation>
+Guides application design-time and run-time selections.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-1 Inventory &amp; Classification" id="id-3d9e5873170a4b059e9aa4d0bbb3ddb2">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Cryptographic Asset Inventory &amp; Classification" id="id-3d9e5873170a4b059e9aa4d0bbb3ddb2">
       <documentation>Identify all cryptographic assets and prioritize what needs PQC first.</documentation>
     </element>
-    <element xsi:type="archimate:ValueStream" name="ST-VAL-1 Trust &amp; Compliance Value" id="id-6a04cd9eb7334b6289d0e8f7f0604633"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-3 PQC Migration Roadmap" id="id-d6338e1f0e004174b556e9290d2829da">
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Quantum-Resilient Trust" id="id-6a04cd9eb7334b6289d0e8f7f0604633"/>
+    <element xsi:type="archimate:Resource" name="ST-RES PQC Migration Roadmap" id="id-d6338e1f0e004174b556e9290d2829da">
       <documentation>Incremental adoption via inventory, pilot hybrid, mass rollout, deprecations.&#xD;
 Sequenced actions to prepare, discover, test, migrate, and monitor; aligns with CISA/NIST/NSA factsheet and NIST SP 1800 38.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-2 Dual-Stack / Hybrid Cryptography" id="id-1f1a638ad14a4ae9830f492ddc666c7d">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA TCT Dual-Stack / Hybrid Cryptography" id="id-1f1a638ad14a4ae9830f492ddc666c7d">
       <documentation>Combine classical and PQC algorithms simultaneously.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-3 Crypto Abstraction Layers" id="id-934f255c4ff3422dbe560ca6e7750afc">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Crypto Abstraction Layers" id="id-934f255c4ff3422dbe560ca6e7750afc">
       <documentation>Introduce indirection layers so algorithms can be swapped without redesign.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-4 Protocol Upgrades with Negotiation" id="id-84e66213e2794062b313ecf12712a31a">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Protocol Upgrades with Negotiation" id="id-84e66213e2794062b313ecf12712a31a">
       <documentation>Enable runtime negotiation of supported classical and PQC algorithms.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-5 Modular Key Management Upgrades" id="id-439ea38241c348d5856225d23d3ee6fc">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Modular Key Management Upgrades" id="id-439ea38241c348d5856225d23d3ee6fc">
       <documentation>Ensure key generation, storage, and rotation support PQC formats.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-6 Algorithm Independent APIs" id="id-57896d240f4649b9a98735969a08b4f0">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Algorithm Independent APIs" id="id-57896d240f4649b9a98735969a08b4f0">
       <documentation>Replace hard coded crypto calls with interfaces independent of algorithm choice.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-7 Incremental Component Replacement" id="id-b180ae69ad6a449ca133011038ce5819">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Incremental Component Replacement" id="id-b180ae69ad6a449ca133011038ce5819">
       <documentation>Swap cryptographic modules piece by piece without full system downtime.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-8 Fallback &amp; Rollback Mechanisms" id="id-c62fbb0c9e1344b1bfe37c353d6173b8">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Fallback &amp; Rollback Mechanisms" id="id-c62fbb0c9e1344b1bfe37c353d6173b8">
       <documentation>Maintain the ability to revert or change algorithms quickly if issues occur.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-9 Testing with PQC Readiness Pipelines" id="id-a194f27462f44da5a30a01dfd6bffc32">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Testing with PQC Readiness Pipelines" id="id-a194f27462f44da5a30a01dfd6bffc32">
       <documentation>Integrate automated tests that validate algorithm agility and PQC support.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-10 Phased Deployment / Parallel Environments" id="id-2c9f125d4850485284a263523cc29ae9">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Phased Deployment / Parallel Environments" id="id-2c9f125d4850485284a263523cc29ae9">
       <documentation>Run classical and PQC-enabled environments side by side before full cutover.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-11 Vendor &amp; Standards Alignment" id="id-0e03ac3be6bd42aa9485345e7c56fc70">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Vendor &amp; Standards Alignment" id="id-0e03ac3be6bd42aa9485345e7c56fc70">
       <documentation>Ensure solutions track NIST PQC standards and external library support evolution.</documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-12 Continuous Monitoring for Cryptographic Drift" id="id-e6639f7ed2254df1b1707b79049bb0a5">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Continuous Monitoring for Cryptographic Drift" id="id-e6639f7ed2254df1b1707b79049bb0a5">
       <documentation>Detect and correct components that revert to legacy algorithms.&#xD;
 </documentation>
     </element>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-13 Pre-shared Symmetric Keys" id="id-14abdadc2ac7490aa6ecab0cbd99b6bd"/>
-    <element xsi:type="archimate:CourseOfAction" name="ST-COA-14 Indirection Layer" id="id-b66c0b6e74a041938093450b26c4d92a">
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Pre-shared Symmetric Keys" id="id-14abdadc2ac7490aa6ecab0cbd99b6bd"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA-TCT Indirection Layer" id="id-b66c0b6e74a041938093450b26c4d92a">
       <documentation>Create an indirection layer: PKCS#11&#xD;
 o	Use Qryptotoken, a modular, PKCS#11-based  loadable software token &#xD;
 o	Use oqsprovider&#xD;
 </documentation>
     </element>
-    <element xsi:type="archimate:Resource" name="ST-RES-ALG-1 RSA 2048" id="id-3acbf6c579eb448fa9bf58f0304aa735"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-ALG-2 ECDH" id="id-4cb5c8cc7a68438ca3ac3b0857d94b12"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PTC-1 TLS 1.3" id="id-1d4812efb953426698ca21991320b0a7"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PTC-2 IPSEC" id="id-d65f0b602ef547bbaf03a022ef16efdb"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PTC-3 KMIP" id="id-bea3d1640d1c418fa9dcb2931312380c"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 203" id="id-41956e5d4eeb4ce08bcd106b95789a7a"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 204" id="id-af6f212e14ec4329aa5b84c1c8351bcd"/>
-    <element xsi:type="archimate:Resource" name="ST-RES-PQC FIPS 205" id="id-f6ce94fdf1cd40f4a88aaf157bbf1f9b"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-ALG RSA 2048" id="id-3acbf6c579eb448fa9bf58f0304aa735"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-ALG ECDH" id="id-4cb5c8cc7a68438ca3ac3b0857d94b12"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PTC TLS 1.3" id="id-1d4812efb953426698ca21991320b0a7"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PTC IPSEC" id="id-d65f0b602ef547bbaf03a022ef16efdb"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PTC KMIP" id="id-bea3d1640d1c418fa9dcb2931312380c"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC ML-KEM (FIPS 203)" id="id-41956e5d4eeb4ce08bcd106b95789a7a"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC ML-DSA (FIPS 204)" id="id-af6f212e14ec4329aa5b84c1c8351bcd"/>
+    <element xsi:type="archimate:Resource" name="ST-RES-PQC SLH-DSA (FIPS 205)" id="id-f6ce94fdf1cd40f4a88aaf157bbf1f9b"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Long Term Data Confidentiality" id="id-68306897e312476288ed160495316f27"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Future Proof Security Posture" id="id-c73114113a4e46b69d6517e1abccb6fd"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Regulatory Assurance" id="id-e4cb99b4a45e4e4aa8836a65f06c1744"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Reduced Cryptographic Risk" id="id-72c788568be14db5a1df1762d6fdbdb9"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Vendor Independence via Agility" id="id-8487f59aa1574c428ccf907b60265064"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Continuity of Secure Operations" id="id-213193893f20431b839b2fe9e9c88275"/>
+    <element xsi:type="archimate:ValueStream" name="ST-VAL Policy and Standards Compliance (Internal)" id="id-0fba716e81874d1fa451b28af7fb7fd4"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Certificate &amp; PKI Management" id="id-a0492a39d39942eb85c24ab85cbeff0b"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Secure Communications Management" id="id-2d11c513811e4a7e8294238f8934c314"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Secrets Management" id="id-f036d605c1f444acad4d8b9dd35a7170"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Cryptographic Key Management" id="id-e3b442b085c84363ba4c3d2e407b71e5"/>
+    <element xsi:type="archimate:Capability" name="ST-CAP Cryptographic Agility" id="id-b1e1178bccf04ae2b7aa974badf145a2"/>
+    <element xsi:type="archimate:Resource" name="ST-RES Cryptographic Inventory" id="id-a3feec3d8b0e4b2288ab5b7f6eda147a"/>
+    <element xsi:type="archimate:Resource" name="ST-RES PQC Test Environment" id="id-467907ec17c248368783e4ab679bd10d"/>
+    <element xsi:type="archimate:Resource" name="ST-RES PQC-Capable Libraries" id="id-8c0b5edf535840669d30f225bdecb876"/>
+    <element xsi:type="archimate:Resource" name="ST-RES HSMs / KMSs with PQC Support" id="id-9c11a8fa941045bf98e06858ae0c4bc5"/>
+    <element xsi:type="archimate:Resource" name="ST-RES PQC Capable PKI Components" id="id-5e415c72635e4fe9b83dccdd0d747cf3"/>
+    <element xsi:type="archimate:Resource" name="ST-RES Quantum Safe Certificates" id="id-08f8edd8356541bf95b374347c475c45"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Select PQC Algorithm" id="id-f900f824f02b4316afceb10fd0e8e828"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Update PKI to PQC Capable" id="id-705cd0baae0c48a19fc2a58653e2dca8"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Implement Cryptographic Agility" id="id-06d66759b99c4053b25ab46237ab1f5a"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Deploy Quantum Safe Key Exchange" id="id-fae241c392a04d4f851bcc26a7cfc9ee"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Update Vendor &amp; Technology Stack" id="id-b7e7acf7274b417ba5cbb79256618838"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Migrate Cryptographic Protocols" id="id-01d579ce057a4d93947eb2ca1d037d3b"/>
+    <element xsi:type="archimate:CourseOfAction" name="ST-COA Perform PQC Readiness Assessment" id="id-5f26b9fd3e0e4edaa513ec9d039ed118"/>
   </folder>
   <folder name="Business" id="id-51e7fd7c655c4897b747e6dc1931e1f8" type="business">
     <element xsi:type="archimate:BusinessRole" name="B-ROL-1 CISO / Crypto Owner" id="id-bd9e9293260347e8bf797116dbb20fb6">
@@ -120,6 +146,16 @@ o	Use oqsprovider&#xD;
     <element xsi:type="archimate:BusinessActor" name="B-ACT-4 QUBIP" id="id-10cdbd6c5a8a4b4e8f1b2399148b7cff"/>
   </folder>
   <folder name="Application" id="id-f62e927c03fc4207876166daf6671e8b" type="application">
+    <folder name="PQC Modules" id="id-07cb529de0614c46a9fed2cc125ecd75">
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-10 Liboqs" id="id-44133d8bd44d45b981d05371ef324407">
+        <documentation>C-based API.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-12 PQ Code Package" id="id-0b4447634ced426c88df677aab91fe85">
+        <documentation>Supported: AWS-LC</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-13 CIRCL (Cloudflare)" id="id-3c2f5c1ef9114244b7044b65b213cf9b"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-14 SafeLogic CryptoComply PQ TLS" id="id-7628002385e04b6c940a39625bbb4456"/>
+    </folder>
     <element xsi:type="archimate:ApplicationComponent" name="A-CMP-9 SBOM / SCA Scanner" id="id-d53e2e9129f24a6488df7d28886a7ca2"/>
     <element xsi:type="archimate:ApplicationComponent" name="A-CMP-1 Crypto Policy Engine" id="id-94288c82144a4f84881311fb7f7b6ba0">
       <documentation>Centralized Crypto Policy Engine (TLS/SSH/IPsec).&#xD;
@@ -218,9 +254,6 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-9 Cryspen" id="id-7e2390d0331b4ee5a4beae88bd4492f3">
       <documentation>(company) – Formally verified cryptographic libs. Hacspec (DSL) and libcrux.</documentation>
     </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-10 Liboqs" id="id-44133d8bd44d45b981d05371ef324407">
-      <documentation>C-based API.</documentation>
-    </element>
     <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-11Oqsprovider" id="id-3ed3c9e4e26b403292ab528c1e926be5">
       <documentation>Extends OpenSSL3.</documentation>
     </element>
@@ -268,25 +301,19 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Artifact" name="T-ART-3 Trusted Root &amp; Intermediate CA Store" id="id-009da76256244fbd8c31431968a79b53"/>
   </folder>
   <folder name="Motivation" id="id-310a8d8634e34c06becc21ea8044ec51" type="motivation">
-    <element xsi:type="archimate:Driver" name="M-DR-1 Quantum Threat to Cryptography" id="id-e7c5d88a5b39455bbf3fa5f9df47d56b">
+    <element xsi:type="archimate:Driver" name="M-DRV CRQC Threat to Public-Key Cryptography" id="id-e7c5d88a5b39455bbf3fa5f9df47d56b">
       <documentation>Imminent risk that quantum-capable adversaries can break current public-key crypto (Harvest Now Decrypt Later, Trust Now Forge Later).</documentation>
     </element>
-    <element xsi:type="archimate:Driver" name="M-DR-2 Regulatory &amp; Customer Trust" id="id-ea84c37f11e14f518b26624cd8403cb5">
-      <documentation>Legal, contractual, and market expectations (e.g., crypto strength, key management, auditability).</documentation>
-    </element>
-    <element xsi:type="archimate:Driver" name="M-DR-3 Long-Term Data Confidentiality" id="id-08c1929d291946ccbb009e461a44cd08">
+    <element xsi:type="archimate:Driver" name="M-DRV Regulatory and Policy Environment" id="id-ea84c37f11e14f518b26624cd8403cb5"/>
+    <element xsi:type="archimate:Driver" name="M-DRV Long-Lived Data Confidentiality Obligations" id="id-08c1929d291946ccbb009e461a44cd08">
       <documentation>Sensitive data lifetimes exceed classical crypto safety windows.</documentation>
     </element>
-    <element xsi:type="archimate:Driver" name="M-DR-4 Long-Term Trust Associations" id="id-451108184dff4a8295c4c95a165dd814">
+    <element xsi:type="archimate:Driver" name="M-DRV Long-Lived Trust Associations" id="id-451108184dff4a8295c4c95a165dd814">
       <documentation>Certificate lifetimes exceed classical crypto safety windows.</documentation>
     </element>
-    <element xsi:type="archimate:Goal" name="M-GL-1 Crypto Agility Achieved " id="id-924ac16d7d724b2293d8ba84c28d863e">
-      <documentation>Organization can identify and switch cryptography with minimal risk and lead-time.</documentation>
-    </element>
-    <element xsi:type="archimate:Goal" name="M-GL-2 Quantum-Safe Posture" id="id-de0bb1dd02664a0694b774149ac0c42a">
-      <documentation>PQC-ready protocols and controls with hybrid transitional support.</documentation>
-    </element>
-    <element xsi:type="archimate:Outcome" name="M-OC-1 Reduced Break/Replace Cost &amp; Time" id="id-1229011af7aa41f2ba6a1f3f616c09c6">
+    <element xsi:type="archimate:Goal" name="M-GOA Mitigate Quantum-Related Cryptographic Risk" id="id-924ac16d7d724b2293d8ba84c28d863e"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Ensure Long-Term Confidentiality of Sensitive Data" id="id-de0bb1dd02664a0694b774149ac0c42a"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Break/Replace Cost &amp; Time Reduced" id="id-1229011af7aa41f2ba6a1f3f616c09c6">
       <documentation>Material reduction in incident blast radius and migration timelines.</documentation>
     </element>
     <element xsi:type="archimate:Requirement" name="M-RQ-1 Algorithm Independence" id="id-e2961fd6aad943969573bb890669b8c1">
@@ -301,7 +328,7 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Constraint" name="M-CS-1 Approved-Only Crypto" id="id-39888757e009493dbf521020af66a9e1">
       <documentation>Only organization-approved algorithms, modes, parameters, and modules.</documentation>
     </element>
-    <element xsi:type="archimate:Principle" name="M-PR-1 Secure-by-Default " id="id-295cc5962f224121874464f8dd26d381">
+    <element xsi:type="archimate:Principle" name="M-PCP Secure by Default " id="id-295cc5962f224121874464f8dd26d381">
       <documentation>Defaults prefer strongest available crypto; downgrades require governance exceptions.</documentation>
     </element>
     <element xsi:type="archimate:Assessment" name="M-AS-1 Current Crypto Exposure " id="id-df81e7b2d9eb423992542d9af68adff6">
@@ -332,12 +359,64 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Assessment" name="M-AS-9 Data in transit attack" id="id-6024bbd1895e4d428d3533325a8d4c81">
       <documentation>Capturing network traffic and decrypting it (elsewhere).</documentation>
     </element>
-    <element xsi:type="archimate:Principle" name="M-PR-2 MemorySafe principle" id="id-319cc33056684fc0a3c0dfc87aa622f1"/>
-    <element xsi:type="archimate:Principle" name="M-PR-3 Hybrid configuration" id="id-dccd42eab8e14e77928a94151027e313"/>
-    <element xsi:type="archimate:Principle" name="M-PR-4 Backward Compatibility" id="id-5ed612098ec24d5db0c894b8c9b9afe3"/>
-    <element xsi:type="archimate:Principle" name="M-PR-5 Shadow module architecture" id="id-8ba04c51344545f796d7d8dcc1bd2682">
-      <documentation>Crypto ops are delegated to external libs rather than being implemented within the token itself. This promotes modularity, and simplifies updates.</documentation>
+    <element xsi:type="archimate:Principle" name="M-PCP Memory-Safety" id="id-319cc33056684fc0a3c0dfc87aa622f1"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Hybrid Configuration" id="id-dccd42eab8e14e77928a94151027e313"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Backward Compatibility" id="id-5ed612098ec24d5db0c894b8c9b9afe3"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Shadow Module Architecture" id="id-8ba04c51344545f796d7d8dcc1bd2682">
+      <documentation>Crypto ops are delegated to external libs rather than being implemented within the token itself. This promotes modularity, and simplifies updates.&#xD;
+The shadow module architecture principle (commonly known in software engineering as Shadow Testing or Shadowing) is a deployment strategy where a new version of a component or service—the &quot;shadow&quot;—runs alongside the existing production version (&quot;production&quot;) to process the same real-time traffic without affecting the final result seen by users.</documentation>
     </element>
+    <element xsi:type="archimate:Value" name="M-VAL Continuity of Secure Operations" id="id-564f61dff5654c32ae8ac1f7456ea408"/>
+    <element xsi:type="archimate:Value" name="M-VAL Future Proof Security Posture" id="id-a9472399842c4a29b2f46a7c38e4bad8">
+      <documentation>Auditability &amp; Evidence Readiness.&#xD;
+</documentation>
+    </element>
+    <element xsi:type="archimate:Value" name="M-VAL Policy and Standards Compliance (Internal)" id="id-2e640f0747134572b5d07f51b971c08e"/>
+    <element xsi:type="archimate:Value" name="M-VAL Quantum-Resilient Trust" id="id-4d17488c0f944d638124c2c81b8941c6"/>
+    <element xsi:type="archimate:Value" name="M-VAL Reduced Cryptographic Risk" id="id-d94f4a83983f4ca5ba6ddec482e20d72"/>
+    <element xsi:type="archimate:Value" name="M-VAL Regulatory Assurance" id="id-140964626e11490cab98fd2e88deed80"/>
+    <element xsi:type="archimate:Value" name="M-VAL Vendor Independence via Agility" id="id-31e52112aa1a484e9075333b99ee6ed3"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH CISO" id="id-42dce7e1af6243458ca518432c2ce7db"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH DPO" id="id-e19f41b1f30643649759aa99de387c2f"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH CIO" id="id-947b511b74274565b7d8a815cc724a5f"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Enterprise (Security) Architect" id="id-22ed21a4bc424401abc238d3aacd7a93"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Procurement Manager" id="id-bc7e6cd78e4a4548bee069c35f497502"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Product Owner" id="id-ad4c14571ede4e76b3b94b4f4156e8c1"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Internal Audit" id="id-8f255b759b9e44d09bbf9ad0c29beb7d"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Regulator" id="id-a5e1bca69a464273a0220a65e4c51a14"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Technology Vendor" id="id-17ac6adf3dbd4f1da43baefb22b55ffb"/>
+    <element xsi:type="archimate:Stakeholder" name="M-STH Strategic Partner" id="id-356f9dcfc3844e509f943adefc9788ce"/>
+    <element xsi:type="archimate:Driver" name="M-DRV Customer Trust" id="id-af89ad6af562426480608ef9b6e84565"/>
+    <element xsi:type="archimate:Driver" name="M-DRV Market &amp; Stakeholder Expectations" id="id-4ce5598a2cda4211a9859a96b33b0e76"/>
+    <element xsi:type="archimate:Driver" name="M-DRV NIS2 Compliance Requirements" id="id-1c010df90cac4a63bd47274ecd13d411"/>
+    <element xsi:type="archimate:Driver" name="M-DRV Partner PQC Readiness Expectations" id="id-8d661541968041cd875dfaeeca59b31c"/>
+    <element xsi:type="archimate:Driver" name="M-DRV Supplier PQC Readiness Expectations" id="id-6a6d8d15448b426f94f21259c4dcd1ba"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Demonstrate Compliance with Cryptographic Regulatory Obligations" id="id-3914c1d9aa154a91a43937c4d4a78a7d"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Achieve Enterprise-Wide Crypto-Agility" id="id-3980a97146a24f4f95908a4f1e505097"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Achieve Complete Visibility of Cryptographic Assets" id="id-e1e8a95cbd7a40c7aeaf903b33eeb5f0"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Establish Controlled Cryptographic Lifecycle Management" id="id-ae9840db473a4cc48fd8e56260256858"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Preserve Interoperability with External Ecosystem" id="id-b51d449ef8654d66a509025babc7f404"/>
+    <element xsi:type="archimate:Goal" name="M-GOA Maintain Operational Stability During Cryptographic Evolution" id="id-1a8fbe726f0d4c2bb2ba6733aa3ab4a9"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Enterprise Crypto-Agility Achieved" id="id-e23ab2e3ed3d4c6084b735aa910c8099"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Quantum-Susceptible Algorithms Eliminated from Critical Paths" id="id-79f5b12374c04d509f397d826afd07b1"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Long-Lived Confidential Data Secured Against HNDL" id="id-e5b39f11cdc44041ad01a9169587a903"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Authoritative Cryptographic Inventory Established" id="id-2df48e86f1574612966cc1a48c3a4e52"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Controlled Cryptographic Lifecycle Management Operational" id="id-dc0d310c56a84320ad2d6707f378bf93"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Interoperable PQC/Hybrid Posture Achieved" id="id-2e8bcdf8667641a3aee5c97c112cc6eb"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Compliance Evidence for Cryptographic Controls Demonstrated" id="id-9cef34ebd2da4c1cb60795bfccc194b9"/>
+    <element xsi:type="archimate:Outcome" name="M-OUT Operational Stability Maintained During Crypto Transition" id="id-a9337711a8ed4bd4ac0e1c486d369ebf"/>
+    <element xsi:type="archimate:Value" name="M-VAL Board &amp; Investor Confidence" id="id-01d91f38ba234472ba1a2f8383584cb4"/>
+    <element xsi:type="archimate:Value" name="M-VAL Customer Experience Protection" id="id-79b310c360c14ccb843656f45597a82d"/>
+    <element xsi:type="archimate:Value" name="M-VAL Decision-Grade Visibility" id="id-754161560bed45d2b4e6a6c57772f957"/>
+    <element xsi:type="archimate:Value" name="M-VAL Ecosystem Interoperability" id="id-141202d0c50344c2a549473d3365bb93"/>
+    <element xsi:type="archimate:Value" name="M-VAL Integrity and Non-Repudiation Assurance" id="id-2a36e848293841e8baf1cac4be8bb3f2"/>
+    <element xsi:type="archimate:Value" name="M-VAL Long-Term Confidentiality Assurance" id="id-2c7c16e4ea11407cbb1f80d34da2e144"/>
+    <element xsi:type="archimate:Value" name="M-VAL Partner Confidence" id="id-6d4911e393f0447cb99a8e3cb17071dc"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Crypto-Agility by Design" id="id-d3d7723e85cb42de9e67cf07c273ac27"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Algorithm and Parameter Independence" id="id-fdbc1108eed2440facf4174945d2aefd"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Standard-Based Cryptography First" id="id-17bd3a53a5994791af4d26573ce51a55"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Lifecycle Management of Cryptography" id="id-48a9d911031f4079864d83b7ad6292f5"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Cryptographic Transparency and Traceability" id="id-a3cb405327f8484f9526d30e8e54cac1"/>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
     <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>
@@ -549,22 +628,19 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Strategy Relationships" id="id-5259e78a9a0c4a25a06b626df7c23d89">
       <child xsi:type="archimate:DiagramObject" id="id-6704eb7e4155495c982734cc33a328a7" lineColor="#5c5c5c" fillColor="#f5deaa" archimateElement="id-3d9e5873170a4b059e9aa4d0bbb3ddb2">
-        <bounds x="228" y="156" width="120" height="55"/>
+        <bounds x="228" y="144" width="145" height="67"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-622b56323f3e41f5a803cdad92dfbd26" lineColor="#000000" source="id-6704eb7e4155495c982734cc33a328a7" target="id-fc2bdba19333448d8910c21538de80ad" archimateRelationship="id-b9f0cccade5d40e183289179c0a5ce50"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-f45958fc6b5e4d079a3469af1b4979cb" lineColor="#000000" source="id-6704eb7e4155495c982734cc33a328a7" target="id-044edf416a4a48559959245d4efb75e8" archimateRelationship="id-77b76d30775d44c4b56b506461a024e2"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-a4950522236847a3923cd5eb533df1e8" lineColor="#000000" source="id-6704eb7e4155495c982734cc33a328a7" target="id-b51d189aee2f4f29a001fd6d12644297" archimateRelationship="id-d38288a69ccd454cb1486100d94d063f"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-fc2bdba19333448d8910c21538de80ad" targetConnections="id-622b56323f3e41f5a803cdad92dfbd26" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-e2961fd6aad943969573bb890669b8c1">
-        <bounds x="78" y="296" width="120" height="55"/>
+        <bounds x="24" y="296" width="175" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-044edf416a4a48559959245d4efb75e8" targetConnections="id-f45958fc6b5e4d079a3469af1b4979cb" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-d6cbcbcc2f774a569920561577203c0c">
-        <bounds x="228" y="296" width="120" height="55"/>
+        <bounds x="228" y="296" width="175" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-b51d189aee2f4f29a001fd6d12644297" targetConnections="id-a4950522236847a3923cd5eb533df1e8" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-9114219473d2483aa9db48086d2b50e8">
-        <bounds x="378" y="296" width="120" height="55"/>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="id-b2cc34bbb388417d9bb1af99609def4d" lineColor="#5c5c5c" fillColor="#f5deaa" archimateElement="id-683112ceba2c4b709c3575aea9f3c141">
-        <bounds x="612" y="156" width="120" height="55"/>
+        <bounds x="432" y="296" width="175" height="55"/>
       </child>
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Business Relationships" id="id-00a9f621b8404a00b0ffb922fa44535b">
