@@ -413,6 +413,10 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:Value" name="M-VAL Long-Term Confidentiality Assurance" id="id-2c7c16e4ea11407cbb1f80d34da2e144"/>
     <element xsi:type="archimate:Value" name="M-VAL Partner Confidence" id="id-6d4911e393f0447cb99a8e3cb17071dc"/>
     <element xsi:type="archimate:Principle" name="M-PCP Crypto-Agility by Design" id="id-d3d7723e85cb42de9e67cf07c273ac27"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Algorithm and Parameter Independence" id="id-fdbc1108eed2440facf4174945d2aefd"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Standard-Based Cryptography First" id="id-17bd3a53a5994791af4d26573ce51a55"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Lifecycle Management of Cryptography" id="id-48a9d911031f4079864d83b7ad6292f5"/>
+    <element xsi:type="archimate:Principle" name="M-PCP Cryptographic Transparency and Traceability" id="id-a3cb405327f8484f9526d30e8e54cac1"/>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
     <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>

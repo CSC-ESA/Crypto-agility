@@ -325,7 +325,7 @@ Policy-first rollout honours design principle: versioned, testable, and reversib
     <element xsi:type="archimate:Requirement" name="M-RQ-3 Automated Lifecycle " id="id-9114219473d2483aa9db48086d2b50e8">
       <documentation>Automated provisioning, rotation, renewal, and retirement of keys and certificates.</documentation>
     </element>
-    <element xsi:type="archimate:Constraint" name="M-CS-1 Approved-Only Crypto" id="id-39888757e009493dbf521020af66a9e1">
+    <element xsi:type="archimate:Constraint" name="M-CTR Approved-Only Crypto" id="id-39888757e009493dbf521020af66a9e1">
       <documentation>Only organization-approved algorithms, modes, parameters, and modules.</documentation>
     </element>
     <element xsi:type="archimate:Principle" name="M-PCP Secure by Default " id="id-295cc5962f224121874464f8dd26d381">
@@ -417,6 +417,11 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:Principle" name="M-PCP Standard-Based Cryptography First" id="id-17bd3a53a5994791af4d26573ce51a55"/>
     <element xsi:type="archimate:Principle" name="M-PCP Lifecycle Management of Cryptography" id="id-48a9d911031f4079864d83b7ad6292f5"/>
     <element xsi:type="archimate:Principle" name="M-PCP Cryptographic Transparency and Traceability" id="id-a3cb405327f8484f9526d30e8e54cac1"/>
+    <element xsi:type="archimate:Constraint" name="M-CTR Dependence on Third-Party Vendors and Roadmaps" id="id-e0c979855ff1496baf0e3ecdeaa48d88"/>
+    <element xsi:type="archimate:Constraint" name="M-CTR High-Availability and Service Continuity Obligations" id="id-ecca0789d45246e690ae121478551d4e"/>
+    <element xsi:type="archimate:Constraint" name="M-CTR Presence of Legacy Systems with Limited Cryptographic Flexibility" id="id-74e8a4b5a4814f859f467110d27aeea3"/>
+    <element xsi:type="archimate:Constraint" name="M-CTR Interoperability with External Ecosystem and Legacy Counterparties" id="id-08ee7765afcd4e9f8436cb11a371a231"/>
+    <element xsi:type="archimate:Constraint" name="M-CTR Mandatory Compliance with Applicable Cryptographic Regulations" id="id-7c435bac33034910b82ba957931099e2"/>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
     <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>
