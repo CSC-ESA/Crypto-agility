@@ -140,203 +140,214 @@ Integrates crypto policies, SBOM, code signing, SCA, and gate checks.</documenta
     <element xsi:type="archimate:ValueStream" name="ST-VAL Continuous Cryptographic Monitoring" id="id-6ef72763d19c42bd8601534a5cb138b5"/>
   </folder>
   <folder name="Business" id="id-51e7fd7c655c4897b747e6dc1931e1f8" type="business">
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-1 CISO / Crypto Owner" id="id-bd9e9293260347e8bf797116dbb20fb6">
-      <documentation>Owns crypto posture, signs the roadmap, accepts risk. &#xD;
+    <folder name="Bus Process Pool" id="id-ca5705236fa04f559b626034b703f288">
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-1 Crypto Asset Management" id="id-8b7a00a4dfab435a884bee6a501d1867"/>
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-2 Crypto Policy Management" id="id-3a23483e192546e5afcb15e1642d6be9"/>
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-3 Exception Handling &amp; Waiver Management" id="id-3cd2a346874d4060a0fca99097e95502">
+        <documentation>Waivers and temporary allowances for legacy systems, with time boxed compensating controls.</documentation>
+      </element>
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-4 Certificate Lifecycle Management" id="id-ceb1909ee3064544a2dd41b1d3b565fd"/>
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-5 Key Lifecycle Management" id="id-d2f170032cd049ae94b5213fed057b10"/>
+      <element xsi:type="archimate:BusinessProcess" name="B-PRC-6 Supplier/Third-Party Crypto Assurance" id="id-3104e70f3e3e4bb4a9888e09fd177cf1"/>
+    </folder>
+    <folder name="Bus Role Pool" id="id-85a3366f084d4bac8c95d8fee4bc75a9">
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-1 CISO / Crypto Owner" id="id-bd9e9293260347e8bf797116dbb20fb6">
+        <documentation>Owns crypto posture, signs the roadmap, accepts risk. &#xD;
 </documentation>
-    </element>
-    <element xsi:type="archimate:BusinessObject" name="B-OBJ-5 Crypto Posture Dashboard " id="id-25db2a2882234a789a41d8e8daf665fc">
-      <documentation>KPI/KRI reporting: % TLS endpoints PQ ready, policy violations, cert expirations, HSM coverage, etc., surfaced from inventories and scanners.&#xD;
+      </element>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-2 Application Owner" id="id-db23eb92936c40c382cd3fe02e9ad6f2">
+        <documentation>Consume policy and execute migrations on their services and client apps. </documentation>
+      </element>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-3 PKI &amp; KMS Operations Team" id="id-e34a65d189814bf9bbc9fbefe3fcb2bd"/>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-4 DevSecOps / Platform Team" id="id-d51653c03a7147a99a4ce64635477060"/>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-5 Third-Party / Supplier " id="id-cd547ab099f4435fa49ef5244d6d580f"/>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-6 Information Security Officer" id="id-9195baf2c52940f8bf66b6d77260b385"/>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-7 InfoSec GRC Team" id="id-82e07b74c2cd47b5b579962e75121cae"/>
+      <element xsi:type="archimate:BusinessRole" name="B-ROL-8 Crypto Expert" id="id-e1837bd6820c4f99b3f06745d69bf721"/>
+    </folder>
+    <folder name="Bus Object Pool" id="id-b8e07346a3a44ddbb5142a9525702fdc">
+      <element xsi:type="archimate:BusinessObject" name="B-OBJ-1 Crypto Policy" id="id-9755b2ea43584556b436814c96d049ed">
+        <documentation>Enumerates minimums: TLS 1.3 only; allowed KEX (e.g., X25519+ML KEM 768 hybrids); signature algs (ML DSA for server certs when profiles stabilize); SHA 2/3 families; and sunsetting timelines for RSA/ECDSA where applicable. Align with SP 800 52r2, HPKE RFC, CNSA. </documentation>
+      </element>
+      <element xsi:type="archimate:BusinessObject" name="B-OBJ-2 Crypto Risk Register" id="id-d89e5cf1657d4fe581f42380c78e78d6"/>
+      <element xsi:type="archimate:BusinessObject" name="B-OBJ-3 Crypto Asset Inventory" id="id-a27df948b16546b1ae3ec10e0b24990f"/>
+      <element xsi:type="archimate:BusinessObject" name="B-OBJ-4 Exception Register" id="id-e0205cc44deb467ea5f3ac6ad7a6403d"/>
+      <element xsi:type="archimate:BusinessObject" name="B-OBJ-5 Crypto Posture Dashboard " id="id-25db2a2882234a789a41d8e8daf665fc">
+        <documentation>KPI/KRI reporting: % TLS endpoints PQ ready, policy violations, cert expirations, HSM coverage, etc., surfaced from inventories and scanners.&#xD;
 </documentation>
-    </element>
-    <element xsi:type="archimate:BusinessObject" name="B-OBJ-1 Crypto Policy" id="id-9755b2ea43584556b436814c96d049ed">
-      <documentation>Enumerates minimums: TLS 1.3 only; allowed KEX (e.g., X25519+ML KEM 768 hybrids); signature algs (ML DSA for server certs when profiles stabilize); SHA 2/3 families; and sunsetting timelines for RSA/ECDSA where applicable. Align with SP 800 52r2, HPKE RFC, CNSA. </documentation>
-    </element>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-2 Application Owner" id="id-db23eb92936c40c382cd3fe02e9ad6f2">
-      <documentation>Consume policy and execute migrations on their services and client apps. </documentation>
-    </element>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-3 PKI &amp; KMS Operations Team" id="id-e34a65d189814bf9bbc9fbefe3fcb2bd"/>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-4 DevSecOps / Platform Team" id="id-d51653c03a7147a99a4ce64635477060"/>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-5 Third-Party / Supplier " id="id-cd547ab099f4435fa49ef5244d6d580f"/>
-    <element xsi:type="archimate:BusinessService" name="B-SRV-1 Crypto Governance Service" id="id-963b4f2417d24ae3b980e5e09e157ded"/>
-    <element xsi:type="archimate:BusinessService" name="B-SRV-2 Crypto Risk &amp; Compliance Service" id="id-d490f1a56e0f487598efc9271fe029aa"/>
-    <element xsi:type="archimate:BusinessService" name="B-SRV-4 Third-Party Crypto Assurance Service" id="id-f0b31282eb844991afe8299f4417fc09"/>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-1 Crypto Asset Management" id="id-8b7a00a4dfab435a884bee6a501d1867"/>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-2 Crypto Policy Management" id="id-3a23483e192546e5afcb15e1642d6be9"/>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-3 Exception Handling &amp; Waiver Management" id="id-3cd2a346874d4060a0fca99097e95502">
-      <documentation>Waivers and temporary allowances for legacy systems, with time boxed compensating controls.</documentation>
-    </element>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-4 Certificate Lifecycle Management" id="id-ceb1909ee3064544a2dd41b1d3b565fd"/>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-5 Key Lifecycle Management" id="id-d2f170032cd049ae94b5213fed057b10"/>
-    <element xsi:type="archimate:BusinessProcess" name="B-PRC-6 Supplier/Third-Party Crypto Assurance" id="id-3104e70f3e3e4bb4a9888e09fd177cf1"/>
-    <element xsi:type="archimate:BusinessService" name="B-SRV-5 Industry Standards Watch Service" id="id-197d77e09f06414b8ba7111ea668353b">
-      <documentation>Systematic tracking of NIST PQC, IETF TLS/HPKE, ENISA EU guidance, etc., feeding updates to policy engine.</documentation>
-    </element>
-    <element xsi:type="archimate:BusinessObject" name="B-OBJ-2 Crypto Risk Register" id="id-d89e5cf1657d4fe581f42380c78e78d6"/>
-    <element xsi:type="archimate:BusinessObject" name="B-OBJ-3 Crypto Asset Inventory" id="id-a27df948b16546b1ae3ec10e0b24990f"/>
-    <element xsi:type="archimate:BusinessObject" name="B-OBJ-4 Exception Register" id="id-e0205cc44deb467ea5f3ac6ad7a6403d"/>
-    <element xsi:type="archimate:BusinessService" name="B-SRV-3 Application Crypto Onboarding Service" id="id-46bbcf94c2524fe4bf8ffb644d30802f"/>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-6 Information Security Officer" id="id-9195baf2c52940f8bf66b6d77260b385"/>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-7 InfoSec GRC Team" id="id-82e07b74c2cd47b5b579962e75121cae"/>
-    <element xsi:type="archimate:BusinessRole" name="B-ROL-8 Crypto Expert" id="id-e1837bd6820c4f99b3f06745d69bf721"/>
-    <element xsi:type="archimate:BusinessActor" name="B-ACT-1 Open Quantum Safe" id="id-b6904f393a5f417e8b0068386e8973a3"/>
-    <element xsi:type="archimate:BusinessActor" name="B-ACT-2 IETF BQUIP" id="id-b670a4b222404feaaf86d6e8d817dac5"/>
-    <element xsi:type="archimate:BusinessActor" name="B-ACT-3 IETF LAMPS" id="id-60141474596d404fb0d971f0fcad9e34"/>
-    <element xsi:type="archimate:BusinessActor" name="B-ACT-4 QUBIP" id="id-10cdbd6c5a8a4b4e8f1b2399148b7cff"/>
+      </element>
+    </folder>
+    <folder name="Bus Actor Pool" id="id-5cb1cc5ab5644fa48b1db3d5fd42523c">
+      <element xsi:type="archimate:BusinessActor" name="B-ACT-1 Open Quantum Safe" id="id-b6904f393a5f417e8b0068386e8973a3"/>
+      <element xsi:type="archimate:BusinessActor" name="B-ACT-2 IETF BQUIP" id="id-b670a4b222404feaaf86d6e8d817dac5"/>
+      <element xsi:type="archimate:BusinessActor" name="B-ACT-3 IETF LAMPS" id="id-60141474596d404fb0d971f0fcad9e34"/>
+      <element xsi:type="archimate:BusinessActor" name="B-ACT-4 QUBIP" id="id-10cdbd6c5a8a4b4e8f1b2399148b7cff"/>
+    </folder>
+    <folder name="Bus Service Pool" id="id-1c074f569004412d96820e7002119e73">
+      <element xsi:type="archimate:BusinessService" name="B-SRV-1 Crypto Governance Service" id="id-963b4f2417d24ae3b980e5e09e157ded"/>
+      <element xsi:type="archimate:BusinessService" name="B-SRV-2 Crypto Risk &amp; Compliance Service" id="id-d490f1a56e0f487598efc9271fe029aa"/>
+      <element xsi:type="archimate:BusinessService" name="B-SRV-3 Application Crypto Onboarding Service" id="id-46bbcf94c2524fe4bf8ffb644d30802f"/>
+      <element xsi:type="archimate:BusinessService" name="B-SRV-4 Third-Party Crypto Assurance Service" id="id-f0b31282eb844991afe8299f4417fc09"/>
+      <element xsi:type="archimate:BusinessService" name="B-SRV-5 Industry Standards Watch Service" id="id-197d77e09f06414b8ba7111ea668353b">
+        <documentation>Systematic tracking of NIST PQC, IETF TLS/HPKE, ENISA EU guidance, etc., feeding updates to policy engine.</documentation>
+      </element>
+    </folder>
+    <folder name="PQC-001 TLS Termination Upgrade" id="id-5709564dea8a43209652cbe2a3b1eb27">
+      <element xsi:type="archimate:BusinessService" name="B-SRV Secure Communications Service" id="id-e8e5451128ce4c6b9a2b794dec8f2a92"/>
+      <element xsi:type="archimate:BusinessService" name="B-SRV Q-Safe Secure Communications Service" id="id-aba86e9c1bd644979d4ac0de28eb285c"/>
+    </folder>
   </folder>
   <folder name="Application" id="id-f62e927c03fc4207876166daf6671e8b" type="application">
-    <folder name="PQC Modules" id="id-07cb529de0614c46a9fed2cc125ecd75">
-      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-10 Liboqs" id="id-44133d8bd44d45b981d05371ef324407">
+    <folder name="PQC Module Implementations" id="id-07cb529de0614c46a9fed2cc125ecd75">
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB Liboqs" id="id-44133d8bd44d45b981d05371ef324407">
         <documentation>C-based API.</documentation>
       </element>
-      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-12 PQ Code Package" id="id-0b4447634ced426c88df677aab91fe85">
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB PQ Code Package" id="id-0b4447634ced426c88df677aab91fe85">
         <documentation>Supported: AWS-LC</documentation>
       </element>
-      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-13 CIRCL (Cloudflare)" id="id-3c2f5c1ef9114244b7044b65b213cf9b"/>
-      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-14 SafeLogic CryptoComply PQ TLS" id="id-7628002385e04b6c940a39625bbb4456"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB CIRCL (Cloudflare)" id="id-3c2f5c1ef9114244b7044b65b213cf9b"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB SafeLogic CryptoComply PQ TLS" id="id-7628002385e04b6c940a39625bbb4456"/>
     </folder>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-9 SBOM / SCA Scanner" id="id-d53e2e9129f24a6488df7d28886a7ca2"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-1 Crypto Policy Engine" id="id-94288c82144a4f84881311fb7f7b6ba0">
-      <documentation>Centralized Crypto Policy Engine (TLS/SSH/IPsec).&#xD;
+    <folder name="App Component Pool" id="id-af626dc3ac844dae86e971232c6d45d0">
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-1 Crypto Policy Engine" id="id-94288c82144a4f84881311fb7f7b6ba0">
+        <documentation>Centralized Crypto Policy Engine (TLS/SSH/IPsec).&#xD;
 Authoritative source for allowed cipher suites, KEX (including hybrid), signature algorithms, parameters; exposes policy as APIs/OPA bundles for enforcement points. Aligns with SP 800 52r2 and CNSA profiles.&#xD;
 Policy-first rollout honours design principle: versioned, testable, and reversible.&#xD;
 </documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="CBOM Ingestor/Generator" id="id-0348f6b07030401a98503dfb5892eef3">
-      <documentation>Scans code, containers, and binaries; imports from CI/CD; normalizes to CBOM. Tooling patterns from CycloneDX and IBM CBOM. </documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="Cryptographic Discovery Scanner " id="id-5eaccc314f224d3b9b500c924351949f">
-      <documentation>Discovery of protocols, libraries, certs, key sizes in live estates (network/API scans, agent based). NIST SP 1800 38B provides functional test plans and a discovery architecture.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="Crypto Posture Analyzer " id="id-d2255fe6a7fa4f61b89bdfc9ecd15981">
-      <documentation>Evaluates CBOM + runtime scans vs. policy; emits violations, risk scores, and remediation plans. Leverages CISA/NIST quantum readiness guidance.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-5 Certificate Authority / PKI" id="id-59dfa78a90944158bd05633ce37e3bc7">
-      <documentation>X.509 certificate issuing with PQC capable signature algorithms (e.g., ML DSA, SLH DSA) as standards and profiles mature (CNSA guidance for signing). </documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-14 PQC Interop Testbed / Canary Platform" id="id-c081d986bca34cd2b853c1e65c21c057">
-      <documentation>Lab harness to test TLS 1.3 + hybrid KEX and HPKE (RFC 9180) use, plus perf/compat; echoes NIST SP 1800 38C.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="Change Automation / CI CD Integrations " id="id-450d302cbd6542d7a3f307a6b0adacfa">
-      <documentation>Gates builds on policy conformance, injects policy defaults into configs, generates CBOMs.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationService" name="Remediation Playbooks Service " id="id-7311029b733f4012931c99b157f5c46c">
-      <documentation>Curated steps per platform/library (OpenSSL/BoringSSL/NSS/JDK) to turn on ML KEM hybrids, switch signature algs, rotate keys, etc., referencing CNSA/NIST guidance.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="Crypto Telemetry Lake " id="id-87f9c1f33f584d8c934bfdc0903df6a4">
-      <documentation>Stores negotiation traces, JA3/JA4 like fingerprints, cert inventories, scanner results; feeds analytics and dashboards.</documentation>
-    </element>
-    <element xsi:type="archimate:DataObject" name="Crypto Telemetry Lake " id="id-cdbab349b32e493393242ea525b60ec4">
-      <documentation>Negotiation traces, JA3/JA4 like fingerprints, certs, scanner results; analytics and dashboards.</documentation>
-    </element>
-    <element xsi:type="archimate:DataObject" name="Migration Runbook" id="id-ca5bd2a282994c9f93d85edd22e85aeb">
-      <documentation>Sequenced steps by platform to roll out PQ/hybrid changes safely; referenced by playbooks service and SP 1800 38 guidance.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-2 Crypto Abstraction Library / SDK" id="id-3014676402f64954b14e8b47efd8b9e2">
-      <documentation>Algorithm &amp; provider abstraction honours design principle: prevent hard coding; enable policy-driven selection.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-3 Key Management System (KMS)" id="id-1e1a2c1118754d6581667c5e20b45cc1">
-      <documentation>Enterprise key lifecycle orchestration (Generate/Backup/Rotate/Retire), designed per NIST SP 800 130; applies SP 800 152 profile controls; integrates HSMs.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-4 Hardware Security Module Connector" id="id-a0f4fd2a809d4fcfbe82cad4906b38b9"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-6 Certificate Management Orchestrator " id="id-735d1533f82a463ca34f324227eb6b25"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-7 Secrets Management (Vault) " id="id-6a634d50168d4152bafd6e7460ee31ea"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-11 Code Signing Module" id="id-01e14d70fc864cada693097e7cf8f1e2"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-12 API Gateway / TLS Termination Proxy / Reverse Proxy" id="id-457b388618b049d8b2a4075a565a8820"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-13 Service Mesh (mTLS)" id="id-b3e35046bc2a499ca99512d7f14bc852"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-15 Policy Decision Point (PDP)" id="id-4f3e85c6898f4217b8689524bde6e27c"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-16 Policy Enforcement Point (PEP) Sidecar/Agent " id="id-370b28bd91be4d41a08f98c866fd05b3"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-1 Crypto Policy Publication API" id="id-708620675b2046fea498436ad15c4c30">
-      <documentation>Delivers machine readable policies to gateways, service meshes, CDNs, servers, and client SDKs.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-2 Algorithm Selection &amp; Negotiation Service" id="id-46e644be4f4f4d14a73e80a7554547b3"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-3 Key Provisioning &amp; Rotation Service" id="id-78e9cf183f4a43a3bdac70e1ec340017"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-4 Certificate Enrollment &amp; Renewal Service" id="id-381ce2cf3c75435babe3711789558579"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-5 Crypto Inventory &amp; Telemetry Service" id="id-0b72358e869941959bf53a538f910636"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-6 Compliance Assessment &amp; Reporting Service" id="id-6b5afdcff0a742168f5d7f8fc9352fee"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-10 Crypto Compliance Engine" id="id-55531a40191f425cb48c801c123819b9"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-8 CBOM / Crypto Telemetry &amp; Inventory Collector" id="id-cc80b885bb2c43b8b16fd39ec8a7cfd3">
-      <documentation>Enterprise datastore of Cryptography Bills of Materials (CBOM) for apps/services, using CycloneDX CBOM schema; joins SBOMs with crypto assets. </documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-7 Code Signing &amp; Verification Service" id="id-e5ccbce7a00342eb913438cb835941e7"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-8 Secure Communications Service (TLS/mTLS/IPsec)" id="id-2cb2fcd47b044d70bea4821d0b9be44d"/>
-    <element xsi:type="archimate:ApplicationService" name="A-SRV-9 PQC Experimentation &amp; Canary Service" id="id-69b75dd50b1848878a2de084833d1be7"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-1 Policy Versioning &amp; Rollout" id="id-ae08bfb940044ea6a98b493f8f32c07b"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-2 Hybrid Key Exchange Orchestration (KEM hybrid)" id="id-32bbfe0a76874fb9a6ba094a38ef7984"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-3 Key Custody Workflow" id="id-ccd66c66a5fa442cb2797afb0190cab0"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-4 Certificate Lifecycle Workflow (CMPv2/ACME/EST)" id="id-597a0bb8e1434e559c2baa585194fc85"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-5 Runtime Discovery &amp; Telemetry Collection" id="id-6b49d50148984061aeda0fd1076f0e3b"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-6 SBOM Correlation &amp; Crypto Finding Dedup" id="id-b04980debb7e43a18fc225212dbbc93a"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-7 Compliance Rule Evaluation" id="id-6e26a74935594e30b36750d011755fb2"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-8 Policy Enforcement at Endpoint (PEP)" id="id-3ac3bd48afc54900acd10831b3d0887b"/>
-    <element xsi:type="archimate:ApplicationFunction" name="A-FNC-9 PQC A/B Testing &amp; Fallback" id="id-a4a2c503c1e644d3a53b1dee837d98f1"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-1 Crypto Policy (Machine-Readable)" id="id-4171bcbb8b1748f5bf81b28fc88f7de5"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-2 Algorithm Catalog &amp; Parameters" id="id-6354eacb2dc54999826b11e319a20c35">
-      <documentation>Entries per app/service: algorithms, libs, key sizes, protocol versions, cert chains, expiry, FIPS claims; per CycloneDX CBOM data model.</documentation>
-    </element>
-    <element xsi:type="archimate:DataObject" name="A-DAT-4 Certificate &amp; CSR" id="id-0686a8ff698f4555b4cc369e3ce41183"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-5 SBOM &amp; SCA Findings" id="id-6d487d87842b4f97bbcc62849b49c963"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-6 CBOM / Crypto Inventory Records" id="id-8199f2175cc94b26949c8d22002f0115"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-7 Compliance Reports &amp; Evidence" id="id-1543572be80e4c3fb376b02a0f249b6a"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-8 Signed Artifacts / Manifests" id="id-50256878161f4f5fa016b098ac3d7435"/>
-    <element xsi:type="archimate:DataObject" name="A-DAT-3 Key Material (Secure Ref / Handle)" id="id-14a335ef590545d68f4209e10bbfcf17"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-1 Libcrux" id="id-c2d42addc209424184921f7f6492a5ae">
-      <documentation>Rust-based</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-2 BoringSSL" id="id-e3ca389c8b264967923bfdd20bb27175"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-3 LibreSSL" id="id-145e1924c158486d89dbef50610b563e"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-4 OpenSSL" id="id-52f11d0662374d328fa747694a3b223c"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-5 WolfSSL" id="id-55c68294b1164df09a2cc5339b8bfb9e"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-6 Cryptlib" id="id-945723fb68a9492094699a0bd1e1b714"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-7 NSS" id="id-90f6c35ce70b4b11b43f2cba027d9b39"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-8 Java JCA, JCE" id="id-b738c37bc3a346bf919b201ce4a0a700"/>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-9 Cryspen" id="id-7e2390d0331b4ee5a4beae88bd4492f3">
-      <documentation>(company) – Formally verified cryptographic libs. Hacspec (DSL) and libcrux.</documentation>
-    </element>
-    <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-11Oqsprovider" id="id-3ed3c9e4e26b403292ab528c1e926be5">
-      <documentation>Extends OpenSSL3.</documentation>
-    </element>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-2 Crypto Abstraction Library / SDK" id="id-3014676402f64954b14e8b47efd8b9e2">
+        <documentation>Algorithm &amp; provider abstraction honours design principle: prevent hard coding; enable policy-driven selection.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-3 Key Management System (KMS)" id="id-1e1a2c1118754d6581667c5e20b45cc1">
+        <documentation>Enterprise key lifecycle orchestration (Generate/Backup/Rotate/Retire), designed per NIST SP 800 130; applies SP 800 152 profile controls; integrates HSMs.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-4 Hardware Security Module Connector" id="id-a0f4fd2a809d4fcfbe82cad4906b38b9"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-5 Certificate Authority / PKI" id="id-59dfa78a90944158bd05633ce37e3bc7">
+        <documentation>X.509 certificate issuing with PQC capable signature algorithms (e.g., ML DSA, SLH DSA) as standards and profiles mature (CNSA guidance for signing). </documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-6 Certificate Management Orchestrator " id="id-735d1533f82a463ca34f324227eb6b25"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-7 Secrets Management (Vault) " id="id-6a634d50168d4152bafd6e7460ee31ea"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-8 CBOM / Crypto Telemetry &amp; Inventory Collector" id="id-cc80b885bb2c43b8b16fd39ec8a7cfd3">
+        <documentation>Enterprise datastore of Cryptography Bills of Materials (CBOM) for apps/services, using CycloneDX CBOM schema; joins SBOMs with crypto assets. </documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-9 SBOM / SCA Scanner" id="id-d53e2e9129f24a6488df7d28886a7ca2"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-10 Crypto Compliance Engine" id="id-55531a40191f425cb48c801c123819b9"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-11 Code Signing Module" id="id-01e14d70fc864cada693097e7cf8f1e2"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-13 Service Mesh (mTLS)" id="id-b3e35046bc2a499ca99512d7f14bc852"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-14 PQC Interop Testbed / Canary Platform" id="id-c081d986bca34cd2b853c1e65c21c057">
+        <documentation>Lab harness to test TLS 1.3 + hybrid KEX and HPKE (RFC 9180) use, plus perf/compat; echoes NIST SP 1800 38C.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-15 Policy Decision Point (PDP)" id="id-4f3e85c6898f4217b8689524bde6e27c"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-16 Policy Enforcement Point (PEP) Sidecar/Agent " id="id-370b28bd91be4d41a08f98c866fd05b3"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-1 Libcrux" id="id-c2d42addc209424184921f7f6492a5ae">
+        <documentation>Rust-based</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-2 BoringSSL" id="id-e3ca389c8b264967923bfdd20bb27175"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-3 LibreSSL" id="id-145e1924c158486d89dbef50610b563e"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-4 OpenSSL" id="id-52f11d0662374d328fa747694a3b223c"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-5 WolfSSL" id="id-55c68294b1164df09a2cc5339b8bfb9e"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-6 Cryptlib" id="id-945723fb68a9492094699a0bd1e1b714"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-7 NSS" id="id-90f6c35ce70b4b11b43f2cba027d9b39"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-8 Java JCA, JCE" id="id-b738c37bc3a346bf919b201ce4a0a700"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-9 Cryspen" id="id-7e2390d0331b4ee5a4beae88bd4492f3">
+        <documentation>(company) – Formally verified cryptographic libs. Hacspec (DSL) and libcrux.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-11Oqsprovider" id="id-3ed3c9e4e26b403292ab528c1e926be5">
+        <documentation>Extends OpenSSL3.</documentation>
+      </element>
+    </folder>
+    <folder name="Data Pool" id="id-6738f453ad90427fae961c2a101bf0f2">
+      <element xsi:type="archimate:DataObject" name="A-DAT-1 Crypto Policy (Machine-Readable)" id="id-4171bcbb8b1748f5bf81b28fc88f7de5"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-2 Algorithm Catalog &amp; Parameters" id="id-6354eacb2dc54999826b11e319a20c35">
+        <documentation>Entries per app/service: algorithms, libs, key sizes, protocol versions, cert chains, expiry, FIPS claims; per CycloneDX CBOM data model.</documentation>
+      </element>
+      <element xsi:type="archimate:DataObject" name="A-DAT-3 Key Material (Secure Ref / Handle)" id="id-14a335ef590545d68f4209e10bbfcf17"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-4 Certificate &amp; CSR" id="id-0686a8ff698f4555b4cc369e3ce41183"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-5 SBOM &amp; SCA Findings" id="id-6d487d87842b4f97bbcc62849b49c963"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-6 CBOM / Crypto Inventory Records" id="id-8199f2175cc94b26949c8d22002f0115"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-7 Compliance Reports &amp; Evidence" id="id-1543572be80e4c3fb376b02a0f249b6a"/>
+      <element xsi:type="archimate:DataObject" name="A-DAT-8 Signed Artifacts / Manifests" id="id-50256878161f4f5fa016b098ac3d7435"/>
+    </folder>
+    <folder name="App Function Pool" id="id-8c18d8069f364732bcdf7a09dcca7cf0">
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-1 Policy Versioning &amp; Rollout" id="id-ae08bfb940044ea6a98b493f8f32c07b"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-2 Hybrid Key Exchange Orchestration (KEM hybrid)" id="id-32bbfe0a76874fb9a6ba094a38ef7984"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-3 Key Custody Workflow" id="id-ccd66c66a5fa442cb2797afb0190cab0"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-4 Certificate Lifecycle Workflow (CMPv2/ACME/EST)" id="id-597a0bb8e1434e559c2baa585194fc85"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-5 Runtime Discovery &amp; Telemetry Collection" id="id-6b49d50148984061aeda0fd1076f0e3b"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-6 SBOM Correlation &amp; Crypto Finding Dedup" id="id-b04980debb7e43a18fc225212dbbc93a"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-7 Compliance Rule Evaluation" id="id-6e26a74935594e30b36750d011755fb2"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-8 Policy Enforcement at Endpoint (PEP)" id="id-3ac3bd48afc54900acd10831b3d0887b"/>
+      <element xsi:type="archimate:ApplicationFunction" name="A-FNC-9 PQC A/B Testing &amp; Fallback" id="id-a4a2c503c1e644d3a53b1dee837d98f1"/>
+    </folder>
+    <folder name="App Service Pool" id="id-1303e79546fb4ae0adb4790cf1c984f8">
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-1 Crypto Policy Publication API" id="id-708620675b2046fea498436ad15c4c30">
+        <documentation>Delivers machine readable policies to gateways, service meshes, CDNs, servers, and client SDKs.</documentation>
+      </element>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-2 Algorithm Selection &amp; Negotiation Service" id="id-46e644be4f4f4d14a73e80a7554547b3"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-3 Key Provisioning &amp; Rotation Service" id="id-78e9cf183f4a43a3bdac70e1ec340017"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-4 Certificate Enrollment &amp; Renewal Service" id="id-381ce2cf3c75435babe3711789558579"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-5 Crypto Inventory &amp; Telemetry Service" id="id-0b72358e869941959bf53a538f910636"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-6 Compliance Assessment &amp; Reporting Service" id="id-6b5afdcff0a742168f5d7f8fc9352fee"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-7 Code Signing &amp; Verification Service" id="id-e5ccbce7a00342eb913438cb835941e7"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV-9 PQC Experimentation &amp; Canary Service" id="id-69b75dd50b1848878a2de084833d1be7"/>
+    </folder>
+    <folder name="PQC-001 TLS Termination Upgrade" id="id-af6fdd2698934c24bdd31a77d7fb2aa5">
+      <element xsi:type="archimate:ApplicationService" name="A-SRV Secure Communications Service (TLS/mTLS/IPsec)" id="id-2cb2fcd47b044d70bea4821d0b9be44d"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP API Gateway / TLS Termination Proxy / Reverse Proxy" id="id-457b388618b049d8b2a4075a565a8820"/>
+      <element xsi:type="archimate:ApplicationInterface" name="A-INT HTTPS Endpoint" id="id-65b9c66a2c7a4a089f4a39d39b05fa2c"/>
+      <element xsi:type="archimate:ApplicationComponent" name="A-CMP PQC-Enabled API Gateway" id="id-c44ed91e01ca43bab735846b4d540330"/>
+      <element xsi:type="archimate:ApplicationInterface" name="A-INT PQC HTTPS Endpoint" id="id-77e35b1bde244ec388d3d8bbc9c3c8ae"/>
+      <element xsi:type="archimate:ApplicationService" name="A-SRV Q-Safe Secure Communications Service" id="id-d470b100943c41ffbcec17fe9d590d9d"/>
+    </folder>
   </folder>
   <folder name="Technology &amp; Physical" id="id-5a19f96b800b494a8d2d4f619213909b" type="technology">
-    <element xsi:type="archimate:SystemSoftware" name="Service Mesh (Sidecar / Gateway) " id="id-3db3a9ddfdd546a1a4310cc92ad027dd">
-      <documentation>Enforces mTLS crypto suites and certificate profiles per policy; supports Hybrid Public Key Encryption (HPKE) based features where applicable.</documentation>
-    </element>
-    <element xsi:type="archimate:SystemSoftware" name="Application Server" id="id-e9935b265c0848d894119635fc994bce">
-      <documentation>Client/server stack (OpenSSL/BoringSSL/NSS/JDK) configured from the policy engine via IaC (CAVP/CMVP validations emerging for ML KEM/ML DSA in common modules). </documentation>
-    </element>
-    <element xsi:type="archimate:Node" name="Workload" id="id-250ec30f4a9f4bd094736fc43de11915">
-      <documentation>Client/server stack (OpenSSL/BoringSSL/NSS/JDK) configured from the policy engine via IaC (CAVP/CMVP validations emerging for ML KEM/ML DSA in common modules).</documentation>
-    </element>
-    <element xsi:type="archimate:Artifact" name="Secure Configuration Baseline (Artifact)" id="id-af8c0bb24fb0437995ebb414d9a43a00">
-      <documentation>Versioned configs (Ansible/Terraform/Helm) for crypto suites, KEX, cert profiles, pinned algorithm OIDs.</documentation>
-    </element>
-    <element xsi:type="archimate:Equipment" name="P-EQP-1 HSM Appliance (On-Prem) " id="id-85a662ab66f340a592438b6b334403a2"/>
-    <element xsi:type="archimate:Equipment" name="P-EQP-2 Smartcard/Hardware Token for Key Ceremony" id="id-e36f1490b12c4692849f90279feaf788"/>
-    <element xsi:type="archimate:Facility" name="P-FAC-1 Data Center Key Custody Room / Safe" id="id-21f693777eaa409eb5009fbb7ad7558a"/>
-    <element xsi:type="archimate:Material" name="P-MAT-1 Paper Backup / Sealed Envelope" id="id-f9afc0353e06408fbe174cfc6f568e69"/>
-    <element xsi:type="archimate:Node" name="T-NOD-1 HSM" id="id-9302a58265604855837f7527a751b9cc">
-      <documentation>FIPS 140 3 validated modules for secure key storage, PQC capable signature offload as vendors support ML DSA/SLH DSA. Aligns with SP 800 130/152 key protection. </documentation>
-    </element>
-    <element xsi:type="archimate:Node" name="T-NOD-2 KMS" id="id-181ea61d3a23478f82882b80bc419a53"/>
-    <element xsi:type="archimate:Node" name="T-NOD-3 PKI/CA Server" id="id-568ab2607b3240bc8b50864b9a81bfe9"/>
-    <element xsi:type="archimate:Node" name="T-NOD-4 Secrets Vault Node" id="id-adbd0243d13d460681646fe1dd206fcd"/>
-    <element xsi:type="archimate:Node" name="T-NOD-5 API Gateway / TLS Terminator Node / Reverse Proxy" id="id-e7eda3a37c374acda7510beee625156f">
-      <documentation>Terminates TLS 1.3; consumes policy for allowed suites and hybrid KEX (when supported).</documentation>
-    </element>
-    <element xsi:type="archimate:Node" name="T-NOD-6 Service Mesh Control Plane" id="id-1f6e36d4cae345cb9e7815636e9e4833"/>
-    <element xsi:type="archimate:Node" name="T-NOD-7 Telemetry &amp; SIEM Platform" id="id-32bac024e88a4767ac8d27abf4b7bac9"/>
-    <element xsi:type="archimate:SystemSoftware" name="T-SW-1 Crypto Providers (OpenSSL/BoringSSL/CNG/JCE)" id="id-cf7502eaf0ad4baa8988190bba76cbf9"/>
-    <element xsi:type="archimate:SystemSoftware" name="T-SW-2 OS &amp; Container Runtime" id="id-7ab2e82079414022aab573ecb3724e88"/>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-1 Secure Key Storage Service" id="id-728d324af07c4a72883f5fa8629ca95a"/>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-2 Cryptographic Operations Service (Sign/Enc/KEM)" id="id-a09cd8b779b74ee7930e2e80de2cab07"/>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-3 RNG / Entropy Service" id="id-50a83c98851d43f0a829a4d24d21fbc8"/>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-4 Time Sync Service (NTP/PTP)" id="id-041761e157084be6b254033f3a6f318c">
-      <documentation>Time sync to support PQC keygen/signing without bias; referenced in KMS designs. </documentation>
-    </element>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-5 Secure Transport Service (TLS/mTLS/IPsec)" id="id-b0c32802a81c4d55957e5f257f9e765b"/>
-    <element xsi:type="archimate:TechnologyService" name="T-SRV-6 Logging &amp; Telemetry Ingestion" id="id-d2d718f041c54a5d8692761c8a8a27af"/>
-    <element xsi:type="archimate:Artifact" name="T-ART-1 Approved Crypto Modules (FIPS-validated)" id="id-3f67915c150d4d13872503fcbe104067"/>
-    <element xsi:type="archimate:Artifact" name="T-ART-2 HSM Key Store &amp; Partition" id="id-3187801c95d74586b8cd1aac1b5311b0"/>
-    <element xsi:type="archimate:Artifact" name="T-ART-3 Trusted Root &amp; Intermediate CA Store" id="id-009da76256244fbd8c31431968a79b53"/>
+    <folder name="Pool" id="id-73056a439b3c4d4cb53ac26dec54b705">
+      <element xsi:type="archimate:SystemSoftware" name="Application Server" id="id-e9935b265c0848d894119635fc994bce">
+        <documentation>Client/server stack (OpenSSL/BoringSSL/NSS/JDK) configured from the policy engine via IaC (CAVP/CMVP validations emerging for ML KEM/ML DSA in common modules). </documentation>
+      </element>
+      <element xsi:type="archimate:Equipment" name="P-EQP-1 HSM Appliance (On-Prem) " id="id-85a662ab66f340a592438b6b334403a2"/>
+      <element xsi:type="archimate:Equipment" name="P-EQP-2 Smartcard/Hardware Token for Key Ceremony" id="id-e36f1490b12c4692849f90279feaf788"/>
+      <element xsi:type="archimate:Facility" name="P-FAC-1 Data Center Key Custody Room / Safe" id="id-21f693777eaa409eb5009fbb7ad7558a"/>
+      <element xsi:type="archimate:Material" name="P-MAT-1 Paper Backup / Sealed Envelope" id="id-f9afc0353e06408fbe174cfc6f568e69"/>
+      <element xsi:type="archimate:Artifact" name="Secure Configuration Baseline (Artifact)" id="id-af8c0bb24fb0437995ebb414d9a43a00">
+        <documentation>Versioned configs (Ansible/Terraform/Helm) for crypto suites, KEX, cert profiles, pinned algorithm OIDs.</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="Service Mesh (Sidecar / Gateway) " id="id-3db3a9ddfdd546a1a4310cc92ad027dd">
+        <documentation>Enforces mTLS crypto suites and certificate profiles per policy; supports Hybrid Public Key Encryption (HPKE) based features where applicable.</documentation>
+      </element>
+      <element xsi:type="archimate:Artifact" name="T-ART-2 HSM Key Store &amp; Partition" id="id-3187801c95d74586b8cd1aac1b5311b0"/>
+      <element xsi:type="archimate:Node" name="T-NOD-1 HSM" id="id-9302a58265604855837f7527a751b9cc">
+        <documentation>FIPS 140 3 validated modules for secure key storage, PQC capable signature offload as vendors support ML DSA/SLH DSA. Aligns with SP 800 130/152 key protection. </documentation>
+      </element>
+      <element xsi:type="archimate:Node" name="T-NOD-2 KMS" id="id-181ea61d3a23478f82882b80bc419a53"/>
+      <element xsi:type="archimate:Node" name="T-NOD-3 PKI/CA Server" id="id-568ab2607b3240bc8b50864b9a81bfe9"/>
+      <element xsi:type="archimate:Node" name="T-NOD-4 Secrets Vault Node" id="id-adbd0243d13d460681646fe1dd206fcd"/>
+      <element xsi:type="archimate:Node" name="T-NOD-7 Telemetry &amp; SIEM Platform" id="id-32bac024e88a4767ac8d27abf4b7bac9"/>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV-1 Secure Key Storage Service" id="id-728d324af07c4a72883f5fa8629ca95a"/>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV-2 Cryptographic Operations Service (Sign/Enc/KEM)" id="id-a09cd8b779b74ee7930e2e80de2cab07"/>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV-3 RNG / Entropy Service" id="id-50a83c98851d43f0a829a4d24d21fbc8"/>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV-4 Time Sync Service (NTP/PTP)" id="id-041761e157084be6b254033f3a6f318c">
+        <documentation>Time sync to support PQC keygen/signing without bias; referenced in KMS designs. </documentation>
+      </element>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV-6 Logging &amp; Telemetry Ingestion" id="id-d2d718f041c54a5d8692761c8a8a27af"/>
+      <element xsi:type="archimate:SystemSoftware" name="T-SW-2 OS &amp; Container Runtime" id="id-7ab2e82079414022aab573ecb3724e88"/>
+    </folder>
+    <folder name="PQC-001 TLS Termination Upgrade" id="id-c41d9b65389047858d5bfe00f4263773">
+      <element xsi:type="archimate:TechnologyService" name="T-SRV Secure Transport Service (TLS/mTLS/IPsec)" id="id-b0c32802a81c4d55957e5f257f9e765b"/>
+      <element xsi:type="archimate:Node" name="T-NOD Load Balancer" id="id-bc6bf0163baf46fea379f274b7f8cdcf"/>
+      <element xsi:type="archimate:Node" name="T-NOD Service Mesh Control Plane" id="id-1f6e36d4cae345cb9e7815636e9e4833"/>
+      <element xsi:type="archimate:Node" name="T-NOD API Gateway / TLS Terminator Node / Reverse Proxy" id="id-e7eda3a37c374acda7510beee625156f">
+        <documentation>Terminates TLS 1.3; consumes policy for allowed suites and hybrid KEX (when supported).</documentation>
+      </element>
+      <element xsi:type="archimate:Artifact" name="T-ART Trusted Root &amp; Intermediate CA Store" id="id-009da76256244fbd8c31431968a79b53"/>
+      <element xsi:type="archimate:Artifact" name="T-ART Approved Crypto Modules (FIPS-validated)" id="id-3f67915c150d4d13872503fcbe104067"/>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Classical Crypto Providers - RSA &amp; ECDH (OpenSSL/BoringSSL/CNG/JCE)" id="id-cf7502eaf0ad4baa8988190bba76cbf9"/>
+      <element xsi:type="archimate:TechnologyService" name="T-SRV Q-Safe Secure Transport Service (TLS/mTLS/IPSec)" id="id-6ef7827ab2f544d6b778b943b352bed5"/>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS PQC Providers FIPS 203/4/5 (OpenSSL/BoringSSL/CNG/JCE)" id="id-3bfc0d0074974d1c907f860fc4ff7408"/>
+      <element xsi:type="archimate:Node" name="T-NOD WAF" id="id-b0b42d0e89104d5aac2375dce2f726af"/>
+      <element xsi:type="archimate:Node" name="T-NOD Application Server" id="id-ae9b28c4f7704b6bab6135b79018df4e"/>
+      <element xsi:type="archimate:Node" name="T-NOD Container Platform Node" id="id-fa48ea766a0d410aba0e3a96fd9b5e3f"/>
+    </folder>
   </folder>
   <folder name="Motivation" id="id-310a8d8634e34c06becc21ea8044ec51" type="motivation">
     <element xsi:type="archimate:Driver" name="M-DRV Regulatory and Policy Environment (NIS2)" id="id-ea84c37f11e14f518b26624cd8403cb5"/>
@@ -465,25 +476,27 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:Outcome" name="M-OUT Entity Non-Repudiation Secured Against CRQC" id="id-b26ae7a95a6342c99dd0a07eb6121f65"/>
   </folder>
   <folder name="Implementation &amp; Migration" id="id-4941d274099e4b60b1c5829587d59d32" type="implementation_migration">
-    <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>
-    <element xsi:type="archimate:Plateau" name="IM-PL-2 Transition: Hybrid Deployments" id="id-be21c5258aca429196149550185490db"/>
-    <element xsi:type="archimate:Plateau" name="IM-PL-3 Target State (Post Quantum Ready) " id="id-30c18bb60b9748bfb50e74f123a91912"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-1 Crypto Discovery &amp; Inventory Rollout" id="id-7b09246350b043de8857ff6c90bbf36e"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-2 Central Crypto Policy &amp; Catalog" id="id-41a046dfaac3429c804b2b37948603b3"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-3 Abstraction Library &amp; PEP/PDP Integration" id="id-6b23e699d8894aa190c745c1e07fcf27"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-4 KMS/HSM Hardening &amp; PQC Readiness" id="id-f698e99d1151464f9021252ee06f15fa"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-5 PKI/CA Automation Upgrade " id="id-1d1a7a4bc0094c2f9b087d45831b8b3d"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-6 Hybrid KEM for TLS (where supported) Pilot" id="id-a21986e2d8d148588d8463564ab7b6b8"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-7 DevSecOps: SBOM, SCA, Code Signing Gates " id="id-5d16eddc37b5495185a8964dcf0b6bae"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-8 Compliance Engine &amp; Reporting Dashboards" id="id-2f9f316dc3304e25bd6215af6a2b5315"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-9 PQC Testbed &amp; Canary Rollouts" id="id-3c63c6a85f3b4e1ca1aace94ea5245dd"/>
-    <element xsi:type="archimate:WorkPackage" name="IM-WP-10 Mass Rotation/Cert Renewal &amp; Deprecations" id="id-5115922e89764137ada8199ce55c994d"/>
-    <element xsi:type="archimate:Deliverable" name="IM-DEL-1 Authoritative Crypto Inventory" id="id-779753ca88064b81a5af8fdab5ad326c"/>
-    <element xsi:type="archimate:Deliverable" name="IM-DEL-2 Crypto Policy (v1…n) &amp; Algorithm Catalog" id="id-8f13ec74608f434bbbc708fac3ed7011"/>
-    <element xsi:type="archimate:Deliverable" name="IM-DEL-3 PEP/PDP Integration Pattern" id="id-bdb933157fa344d292418fd53ccedd89"/>
-    <element xsi:type="archimate:Deliverable" name="IM-DEL-4 Compliance Reports &amp; Evidence Packs" id="id-18767bb7e1704a749e5d8477184b7f3a"/>
-    <element xsi:type="archimate:Gap" name="IM-GAP-1 Unsupported PQC in Critical Stack" id="id-9d87bf08bf93470e8962cad59fbf559c"/>
-    <element xsi:type="archimate:Gap" name="IM-GAP-2 Legacy Protocols with Hard coded Crypto" id="id-833a733aa3914e3fb277295afae00049"/>
+    <folder name="Pool" id="id-fe32a79443a04d9ab5d5ff24b150c28d">
+      <element xsi:type="archimate:Deliverable" name="IM-DEL-1 Authoritative Crypto Inventory" id="id-779753ca88064b81a5af8fdab5ad326c"/>
+      <element xsi:type="archimate:Deliverable" name="IM-DEL-2 Crypto Policy (v1…n) &amp; Algorithm Catalog" id="id-8f13ec74608f434bbbc708fac3ed7011"/>
+      <element xsi:type="archimate:Deliverable" name="IM-DEL-3 PEP/PDP Integration Pattern" id="id-bdb933157fa344d292418fd53ccedd89"/>
+      <element xsi:type="archimate:Deliverable" name="IM-DEL-4 Compliance Reports &amp; Evidence Packs" id="id-18767bb7e1704a749e5d8477184b7f3a"/>
+      <element xsi:type="archimate:Gap" name="IM-GAP-1 Unsupported PQC in Critical Stack" id="id-9d87bf08bf93470e8962cad59fbf559c"/>
+      <element xsi:type="archimate:Gap" name="IM-GAP-2 Legacy Protocols with Hard coded Crypto" id="id-833a733aa3914e3fb277295afae00049"/>
+      <element xsi:type="archimate:Plateau" name="IM-PL-1 Current State (Pre PQC)" id="id-df5b363205fe446b9dd37627a0764d33"/>
+      <element xsi:type="archimate:Plateau" name="IM-PL-2 Transition: Hybrid Deployments" id="id-be21c5258aca429196149550185490db"/>
+      <element xsi:type="archimate:Plateau" name="IM-PL-3 Target State (Post Quantum Ready) " id="id-30c18bb60b9748bfb50e74f123a91912"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-1 Crypto Discovery &amp; Inventory Rollout" id="id-7b09246350b043de8857ff6c90bbf36e"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-2 Central Crypto Policy &amp; Catalog" id="id-41a046dfaac3429c804b2b37948603b3"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-3 Abstraction Library &amp; PEP/PDP Integration" id="id-6b23e699d8894aa190c745c1e07fcf27"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-4 KMS/HSM Hardening &amp; PQC Readiness" id="id-f698e99d1151464f9021252ee06f15fa"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-5 PKI/CA Automation Upgrade " id="id-1d1a7a4bc0094c2f9b087d45831b8b3d"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-6 Hybrid KEM for TLS (where supported) Pilot" id="id-a21986e2d8d148588d8463564ab7b6b8"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-7 DevSecOps: SBOM, SCA, Code Signing Gates " id="id-5d16eddc37b5495185a8964dcf0b6bae"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-8 Compliance Engine &amp; Reporting Dashboards" id="id-2f9f316dc3304e25bd6215af6a2b5315"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-9 PQC Testbed &amp; Canary Rollouts" id="id-3c63c6a85f3b4e1ca1aace94ea5245dd"/>
+      <element xsi:type="archimate:WorkPackage" name="IM-WP-10 Mass Rotation/Cert Renewal &amp; Deprecations" id="id-5115922e89764137ada8199ce55c994d"/>
+    </folder>
   </folder>
   <folder name="Other" id="id-95a64bbf3faa45ae806f994832e1611a" type="other">
     <element xsi:type="archimate:Grouping" id="id-72d354d8c0c34167a17bba7dac307747"/>
@@ -619,6 +632,45 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:TriggeringRelationship" id="id-e46cb75e9c37491f810f54c8f997305f" source="id-90f52b4cc0d548fcac1dbe3a012b2eb5" target="id-be21c5258aca429196149550185490db"/>
     <element xsi:type="archimate:AssociationRelationship" id="id-7f299bf179ab4591909db42b657dc75b" source="id-5115922e89764137ada8199ce55c994d" target="id-833a733aa3914e3fb277295afae00049"/>
     <element xsi:type="archimate:TriggeringRelationship" id="id-7938c94722fe428c98eaee6ea750b5e1" source="id-5115922e89764137ada8199ce55c994d" target="id-30c18bb60b9748bfb50e74f123a91912"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-f79bde838aea46e1913e41a1a5791b38" source="id-213193893f20431b839b2fe9e9c88275" target="id-8f9d0ce6e8ec4f988a033ad5009a999e"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-855639fd01ad42f4a655e04cc00df7c5" source="id-8f9d0ce6e8ec4f988a033ad5009a999e" target="id-df5bfa73771e4714b1954da07843b67e"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-fd69ddd04ad24e4ea272756a210c8067" source="id-df5bfa73771e4714b1954da07843b67e" target="id-b0415ad8537d4d689d79e031dbd1ffa0"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-e3665d7022474018b75d568b5474294c" source="id-b0415ad8537d4d689d79e031dbd1ffa0" target="id-89076345baab4a8999eaf66b50ad6173"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-10c220593a7c4101a40c58d8a5ed802e" source="id-58bcebfd0133407bbb58211e1f2c345a" target="id-e91bf69d02a44e1da50b2bc8426a4336"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-dec934c0093f4674a53b519b01fa58e3" source="id-e91bf69d02a44e1da50b2bc8426a4336" target="id-f5de17af8ab64446b2011e40cb00f980"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-ed0f5a9aeb2244b2b8b0375c29e7f976" source="id-f5de17af8ab64446b2011e40cb00f980" target="id-cebc64a946ff4148b3ad81e267537d2b"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-2f6d47bee1b1403abd88304c4019f24f" source="id-cebc64a946ff4148b3ad81e267537d2b" target="id-1af28876c82a487ba5c1e55b48a13065"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-36021db0203349729ec9332bb32c7123" source="id-3306bf2bbd2f41be8e90032c056b13d3" target="id-9089b41e9ea74a248a659dcad679d3ba"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-2857a50f3a4d4b3fb44fcdede6000277" source="id-9089b41e9ea74a248a659dcad679d3ba" target="id-d3a7a7fa33ec496990b2d5afdd3ddd82"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-b42d9ad721094cb493dd4eac97b3abfb" source="id-d3a7a7fa33ec496990b2d5afdd3ddd82" target="id-3a01d5a38dda4f22859b6809279a08ed"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-98c87a7b114f45cbb516662569c513dd" source="id-3a01d5a38dda4f22859b6809279a08ed" target="id-59f8b1933c734441b7b46ff2b4d4d23e"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-0b7718413ed644a2bad0399f083cf12c" source="id-f5789e3fb21544ae935695b8f22f0dd5" target="id-b8a256dcf7344dcf8b6f1d3da7983aa2"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-6cc6e67122fa427d8fbb29694e94bdb0" source="id-b8a256dcf7344dcf8b6f1d3da7983aa2" target="id-ba52e569b46a41e786503b4adf62a512"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-a8071674b68048aa96215391854f766a" source="id-ba52e569b46a41e786503b4adf62a512" target="id-47a77e7a39e2432985a7084227c821de"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-c95c43b129064767bf023b15e3f16095" source="id-47a77e7a39e2432985a7084227c821de" target="id-6ef72763d19c42bd8601534a5cb138b5"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-6dec27a9d9d1423d98845a83f74451a9" source="id-2cb2fcd47b044d70bea4821d0b9be44d" target="id-e8e5451128ce4c6b9a2b794dec8f2a92"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-9cbb740d9fa8433d8c07f1a498cc4887" source="id-457b388618b049d8b2a4075a565a8820" target="id-65b9c66a2c7a4a089f4a39d39b05fa2c"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-ddbe8a4b6d8b4494adc5c22bb25de6b3" source="id-65b9c66a2c7a4a089f4a39d39b05fa2c" target="id-2cb2fcd47b044d70bea4821d0b9be44d"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-6c8fe81d3ab14a3abab4cf7c5d8f8047" source="id-b0c32802a81c4d55957e5f257f9e765b" target="id-457b388618b049d8b2a4075a565a8820"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-907339494c45493092ca8ca7f079b203" source="id-bc6bf0163baf46fea379f274b7f8cdcf" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-171a254651624227b4fd4b1ca144fa03" source="id-c44ed91e01ca43bab735846b4d540330" target="id-77e35b1bde244ec388d3d8bbc9c3c8ae"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-3b861389d06d42afb981dd61a9585d21" source="id-c44ed91e01ca43bab735846b4d540330" target="id-aba86e9c1bd644979d4ac0de28eb285c"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-7d4dd43a27944d30a47ae9133f52c0ff" source="id-2cb2fcd47b044d70bea4821d0b9be44d" target="id-aba86e9c1bd644979d4ac0de28eb285c"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-69d616ea34ae49d18071b176e49de310" source="id-2cb2fcd47b044d70bea4821d0b9be44d" target="id-e8e5451128ce4c6b9a2b794dec8f2a92"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-9e24263dee4d4dc496c9a8ceaaaa1107" source="id-6ef7827ab2f544d6b778b943b352bed5" target="id-d470b100943c41ffbcec17fe9d590d9d"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-4f812e029942408d8489b9c055845bca" source="id-d470b100943c41ffbcec17fe9d590d9d" target="id-aba86e9c1bd644979d4ac0de28eb285c"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-3e6ed79b2ef14bc7b1d65bb05171f7b1" source="id-bc6bf0163baf46fea379f274b7f8cdcf" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-65ff5279de4c4b3ebe2e2be5b45e706c" source="id-1f6e36d4cae345cb9e7815636e9e4833" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
+    <element xsi:type="archimate:AggregationRelationship" id="id-d1d1b9264cb644b686b39c5b279fd078" source="id-1f6e36d4cae345cb9e7815636e9e4833" target="id-cf7502eaf0ad4baa8988190bba76cbf9"/>
+    <element xsi:type="archimate:AggregationRelationship" id="id-8c98818f837e4de280ad0f30944a9a99" source="id-bc6bf0163baf46fea379f274b7f8cdcf" target="id-cf7502eaf0ad4baa8988190bba76cbf9"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-bec971fa56f94167ac655f303e981c31" source="id-3bfc0d0074974d1c907f860fc4ff7408" target="id-6ef7827ab2f544d6b778b943b352bed5"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-d7a4c70701494fbba7b157f6b7db292b" source="id-3bfc0d0074974d1c907f860fc4ff7408" target="id-3f67915c150d4d13872503fcbe104067"/>
+    <element xsi:type="archimate:AccessRelationship" id="id-2f2b12356ac649d99750b3af70132b42" source="id-3bfc0d0074974d1c907f860fc4ff7408" target="id-3f67915c150d4d13872503fcbe104067"/>
+    <element xsi:type="archimate:AccessRelationship" id="id-963b91ecd594495592570bb8327ab890" source="id-3bfc0d0074974d1c907f860fc4ff7408" target="id-009da76256244fbd8c31431968a79b53"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-c3cad67c0ae34dccb34b75b071b969d2" source="id-457b388618b049d8b2a4075a565a8820" target="id-2cb2fcd47b044d70bea4821d0b9be44d"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-9fb3ceae22bf4413bff7a658b670a51f" source="id-b0b42d0e89104d5aac2375dce2f726af" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-c03293785416430e91684f51cac958b2" source="id-ae9b28c4f7704b6bab6135b79018df4e" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
+    <element xsi:type="archimate:ServingRelationship" id="id-9fda5dfbd5b34225987b962c18b7484a" source="id-fa48ea766a0d410aba0e3a96fd9b5e3f" target="id-b0c32802a81c4d55957e5f257f9e765b"/>
   </folder>
   <folder name="Views" id="id-b8d92f2925654a9a923ce4700555a0a3" type="diagrams">
     <element xsi:type="archimate:ArchimateDiagramModel" name="Motivation Relationships" id="id-a973af2fa6df4bcca77b118433beab4d">
@@ -649,65 +701,81 @@ The shadow module architecture principle (commonly known in software engineering
       </child>
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Strategy Relationships" id="id-5259e78a9a0c4a25a06b626df7c23d89">
-      <child xsi:type="archimate:DiagramObject" id="id-09c4ef023f954bf09fb8b972105e13dd" archimateElement="id-89076345baab4a8999eaf66b50ad6173">
+      <child xsi:type="archimate:DiagramObject" id="id-09c4ef023f954bf09fb8b972105e13dd" targetConnections="id-32b3a1134a114420a907af11656d3c98" archimateElement="id-89076345baab4a8999eaf66b50ad6173">
         <bounds x="792" y="62" width="120" height="86"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-3956b8d19269419f9002e65032d64b4e" archimateElement="id-6ef72763d19c42bd8601534a5cb138b5">
+      <child xsi:type="archimate:DiagramObject" id="id-3956b8d19269419f9002e65032d64b4e" targetConnections="id-c7247eb3b4ef47c389940ecfdd064a8b" archimateElement="id-6ef72763d19c42bd8601534a5cb138b5">
         <bounds x="804" y="375" width="120" height="74"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-42e12363822f4c3c88d103a26949c77a" archimateElement="id-213193893f20431b839b2fe9e9c88275">
         <bounds x="72" y="48" width="120" height="97"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-e91d9fe7a59d48889995ea4108b4b40a" source="id-42e12363822f4c3c88d103a26949c77a" target="id-a2083f663c674556b24003949569fec5" archimateRelationship="id-f79bde838aea46e1913e41a1a5791b38"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-a2083f663c674556b24003949569fec5" archimateElement="id-8f9d0ce6e8ec4f988a033ad5009a999e">
+      <child xsi:type="archimate:DiagramObject" id="id-a2083f663c674556b24003949569fec5" targetConnections="id-e91d9fe7a59d48889995ea4108b4b40a" archimateElement="id-8f9d0ce6e8ec4f988a033ad5009a999e">
         <bounds x="240" y="56" width="120" height="82"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-cf0dc148d10a402e88dc9f1d9939aa7c" source="id-a2083f663c674556b24003949569fec5" target="id-e3d18d4c70894d738dfc7a7968759be1" archimateRelationship="id-855639fd01ad42f4a655e04cc00df7c5"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-25a9417641314fdc8abf596e7f081307" archimateElement="id-1af28876c82a487ba5c1e55b48a13065">
+      <child xsi:type="archimate:DiagramObject" id="id-25a9417641314fdc8abf596e7f081307" targetConnections="id-c22df550e3db4d0193e58aa36d148042" archimateElement="id-1af28876c82a487ba5c1e55b48a13065">
         <bounds x="780" y="189" width="120" height="55"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-e3248ede006c4251b92cad3a8e14de5c" archimateElement="id-f5de17af8ab64446b2011e40cb00f980">
+      <child xsi:type="archimate:DiagramObject" id="id-e3248ede006c4251b92cad3a8e14de5c" targetConnections="id-c44b3c0fc7024ccea00912551a8ab99b" archimateElement="id-f5de17af8ab64446b2011e40cb00f980">
         <bounds x="432" y="189" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-7d0d07617ef6419b9e2e2589fe00581b" source="id-e3248ede006c4251b92cad3a8e14de5c" target="id-6feaee1ec43943c1999fe07d74e3fe64" archimateRelationship="id-ed0f5a9aeb2244b2b8b0375c29e7f976"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-5ddd3445a2dd421ba1ebf65dbe8fdf7b" archimateElement="id-47a77e7a39e2432985a7084227c821de">
+      <child xsi:type="archimate:DiagramObject" id="id-5ddd3445a2dd421ba1ebf65dbe8fdf7b" targetConnections="id-7743e47c869142c9bbbdbb1266944040" archimateElement="id-47a77e7a39e2432985a7084227c821de">
         <bounds x="612" y="384" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c7247eb3b4ef47c389940ecfdd064a8b" source="id-5ddd3445a2dd421ba1ebf65dbe8fdf7b" target="id-3956b8d19269419f9002e65032d64b4e" archimateRelationship="id-c95c43b129064767bf023b15e3f16095"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-9f653bfb26c543cdb2ee2be3fafa841a" archimateElement="id-58bcebfd0133407bbb58211e1f2c345a">
         <bounds x="84" y="180" width="120" height="73"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-b19092f3effa4da68cd7174601419d3b" source="id-9f653bfb26c543cdb2ee2be3fafa841a" target="id-4ec10a4c03084a3c9cadd2418ca635c9" archimateRelationship="id-10c220593a7c4101a40c58d8a5ed802e"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-6feaee1ec43943c1999fe07d74e3fe64" archimateElement="id-cebc64a946ff4148b3ad81e267537d2b">
+      <child xsi:type="archimate:DiagramObject" id="id-6feaee1ec43943c1999fe07d74e3fe64" targetConnections="id-7d0d07617ef6419b9e2e2589fe00581b" archimateElement="id-cebc64a946ff4148b3ad81e267537d2b">
         <bounds x="600" y="180" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c22df550e3db4d0193e58aa36d148042" source="id-6feaee1ec43943c1999fe07d74e3fe64" target="id-25a9417641314fdc8abf596e7f081307" archimateRelationship="id-2f6d47bee1b1403abd88304c4019f24f"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-4ec10a4c03084a3c9cadd2418ca635c9" archimateElement="id-e91bf69d02a44e1da50b2bc8426a4336">
+      <child xsi:type="archimate:DiagramObject" id="id-4ec10a4c03084a3c9cadd2418ca635c9" targetConnections="id-b19092f3effa4da68cd7174601419d3b" archimateElement="id-e91bf69d02a44e1da50b2bc8426a4336">
         <bounds x="252" y="180" width="120" height="64"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c44b3c0fc7024ccea00912551a8ab99b" source="id-4ec10a4c03084a3c9cadd2418ca635c9" target="id-e3248ede006c4251b92cad3a8e14de5c" archimateRelationship="id-dec934c0093f4674a53b519b01fa58e3"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-960926ecf49e469db5874e53d2d43307" archimateElement="id-b0415ad8537d4d689d79e031dbd1ffa0">
+      <child xsi:type="archimate:DiagramObject" id="id-960926ecf49e469db5874e53d2d43307" targetConnections="id-cd53134c610146fa87cd52646c498094" archimateElement="id-b0415ad8537d4d689d79e031dbd1ffa0">
         <bounds x="600" y="65" width="120" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-32b3a1134a114420a907af11656d3c98" source="id-960926ecf49e469db5874e53d2d43307" target="id-09c4ef023f954bf09fb8b972105e13dd" archimateRelationship="id-e3665d7022474018b75d568b5474294c"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-e3d18d4c70894d738dfc7a7968759be1" archimateElement="id-df5bfa73771e4714b1954da07843b67e">
+      <child xsi:type="archimate:DiagramObject" id="id-e3d18d4c70894d738dfc7a7968759be1" targetConnections="id-cf0dc148d10a402e88dc9f1d9939aa7c" archimateElement="id-df5bfa73771e4714b1954da07843b67e">
         <bounds x="409" y="56" width="120" height="82"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-cd53134c610146fa87cd52646c498094" source="id-e3d18d4c70894d738dfc7a7968759be1" target="id-960926ecf49e469db5874e53d2d43307" archimateRelationship="id-fd69ddd04ad24e4ea272756a210c8067"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-6685a982bac34e32a55df781e29c0e4e" archimateElement="id-9089b41e9ea74a248a659dcad679d3ba">
+      <child xsi:type="archimate:DiagramObject" id="id-6685a982bac34e32a55df781e29c0e4e" targetConnections="id-1e86675e51ff43f9a963f7807ce3cef8" archimateElement="id-9089b41e9ea74a248a659dcad679d3ba">
         <bounds x="240" y="288" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-b712019451f047778f4d02bb4c5843da" source="id-6685a982bac34e32a55df781e29c0e4e" target="id-ce74f4f3c95b491b99af1e0fdc2c92ee" archimateRelationship="id-2857a50f3a4d4b3fb44fcdede6000277"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-ad9bf37786854c28a88ffbd75bc49cc0" archimateElement="id-b8a256dcf7344dcf8b6f1d3da7983aa2">
+      <child xsi:type="archimate:DiagramObject" id="id-ad9bf37786854c28a88ffbd75bc49cc0" targetConnections="id-28c08397ca5f457697762b2547cdebfe" archimateElement="id-b8a256dcf7344dcf8b6f1d3da7983aa2">
         <bounds x="252" y="384" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-518730114d934695957a2e5db072f5f8" source="id-ad9bf37786854c28a88ffbd75bc49cc0" target="id-90b5e56155af4b288729e752b358bfad" archimateRelationship="id-6cc6e67122fa427d8fbb29694e94bdb0"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-ce74f4f3c95b491b99af1e0fdc2c92ee" archimateElement="id-d3a7a7fa33ec496990b2d5afdd3ddd82">
+      <child xsi:type="archimate:DiagramObject" id="id-ce74f4f3c95b491b99af1e0fdc2c92ee" targetConnections="id-b712019451f047778f4d02bb4c5843da" archimateElement="id-d3a7a7fa33ec496990b2d5afdd3ddd82">
         <bounds x="432" y="288" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-03a25fa48a564fec9e7c8737339d1b28" source="id-ce74f4f3c95b491b99af1e0fdc2c92ee" target="id-22b8fe2fc0f14a438e8e9b1673c507a6" archimateRelationship="id-b42d9ad721094cb493dd4eac97b3abfb"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-5145ba2ffcaa489388d20e7b419ee0c6" archimateElement="id-59f8b1933c734441b7b46ff2b4d4d23e">
+      <child xsi:type="archimate:DiagramObject" id="id-5145ba2ffcaa489388d20e7b419ee0c6" targetConnections="id-a5b2f39b721e4d609dbfc1f12384cd1b" archimateElement="id-59f8b1933c734441b7b46ff2b4d4d23e">
         <bounds x="792" y="276" width="120" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-58d985c26c074edaaae4095a0875ba05" archimateElement="id-3306bf2bbd2f41be8e90032c056b13d3">
         <bounds x="84" y="288" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-1e86675e51ff43f9a963f7807ce3cef8" source="id-58d985c26c074edaaae4095a0875ba05" target="id-6685a982bac34e32a55df781e29c0e4e" archimateRelationship="id-36021db0203349729ec9332bb32c7123"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-22b8fe2fc0f14a438e8e9b1673c507a6" archimateElement="id-3a01d5a38dda4f22859b6809279a08ed">
+      <child xsi:type="archimate:DiagramObject" id="id-22b8fe2fc0f14a438e8e9b1673c507a6" targetConnections="id-03a25fa48a564fec9e7c8737339d1b28" archimateElement="id-3a01d5a38dda4f22859b6809279a08ed">
         <bounds x="624" y="288" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a5b2f39b721e4d609dbfc1f12384cd1b" source="id-22b8fe2fc0f14a438e8e9b1673c507a6" target="id-5145ba2ffcaa489388d20e7b419ee0c6" archimateRelationship="id-98c87a7b114f45cbb516662569c513dd"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-39dde20845cc4ca9bdd684e1ab7a019a" archimateElement="id-f5789e3fb21544ae935695b8f22f0dd5">
         <bounds x="60" y="396" width="144" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-28c08397ca5f457697762b2547cdebfe" source="id-39dde20845cc4ca9bdd684e1ab7a019a" target="id-ad9bf37786854c28a88ffbd75bc49cc0" archimateRelationship="id-0b7718413ed644a2bad0399f083cf12c"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-90b5e56155af4b288729e752b358bfad" archimateElement="id-ba52e569b46a41e786503b4adf62a512">
+      <child xsi:type="archimate:DiagramObject" id="id-90b5e56155af4b288729e752b358bfad" targetConnections="id-518730114d934695957a2e5db072f5f8" archimateElement="id-ba52e569b46a41e786503b4adf62a512">
         <bounds x="416" y="384" width="151" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-7743e47c869142c9bbbdbb1266944040" source="id-90b5e56155af4b288729e752b358bfad" target="id-5ddd3445a2dd421ba1ebf65dbe8fdf7b" archimateRelationship="id-a8071674b68048aa96215391854f766a"/>
       </child>
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="Business Relationships" id="id-00a9f621b8404a00b0ffb922fa44535b">
@@ -1161,5 +1229,89 @@ The shadow module architecture principle (commonly known in software engineering
         <bounds x="601" y="38" width="150" height="70"/>
       </child>
     </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-001 TLS Termination Upgrade" id="id-24734425fb48498cabf72869b8d7ee41">
+      <child xsi:type="archimate:DiagramObject" id="id-eac5f5e1bdaa47d6879894baa6ea9932" targetConnections="id-79a6a32482e74fb2a430bae5641d491d" archimateElement="id-e8e5451128ce4c6b9a2b794dec8f2a92">
+        <bounds x="96" y="48" width="157" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-577debf7184744eb8890a82d961cee89" targetConnections="id-065c002c8bd244618213acfc54ece9ca" archimateElement="id-457b388618b049d8b2a4075a565a8820">
+        <bounds x="325" y="240" width="163" height="61"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-bbf0d06d626c4909987f81ed684b097a" source="id-577debf7184744eb8890a82d961cee89" target="id-ecb55908d281432a991be4aad60121a2" archimateRelationship="id-9cbb740d9fa8433d8c07f1a498cc4887"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-7197260151224de8be3cb929611e788a" source="id-577debf7184744eb8890a82d961cee89" target="id-b611166c05e94e50ae5bef73df4f63dd" archimateRelationship="id-c3cad67c0ae34dccb34b75b071b969d2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ecb55908d281432a991be4aad60121a2" targetConnections="id-bbf0d06d626c4909987f81ed684b097a" archimateElement="id-65b9c66a2c7a4a089f4a39d39b05fa2c">
+        <bounds x="347" y="141" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-1e8c72f270f04541a862f6604186f61a" source="id-ecb55908d281432a991be4aad60121a2" target="id-b611166c05e94e50ae5bef73df4f63dd" archimateRelationship="id-ddbe8a4b6d8b4494adc5c22bb25de6b3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-8aa8343970db4771a0a4d10c6a7f4e49" targetConnections="id-0ecdaa6456834394840c374f181c7fd8 id-f77c76d9412a493ebf483b2c708e7eac id-3d9c3badbfe84dc0a15fb1013b37815d id-7c7574bfe7b0480db1d07538561722cb id-1437a82afd5a4063abf561d2699ca6e4" archimateElement="id-b0c32802a81c4d55957e5f257f9e765b">
+        <bounds x="102" y="348" width="145" height="61"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-5c34ee8c58284387acf35dfb25529774" source="id-8aa8343970db4771a0a4d10c6a7f4e49" target="id-b611166c05e94e50ae5bef73df4f63dd" archimateRelationship="id-f9ab82d8721643acb9846381249b58d8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-065c002c8bd244618213acfc54ece9ca" source="id-8aa8343970db4771a0a4d10c6a7f4e49" target="id-577debf7184744eb8890a82d961cee89" archimateRelationship="id-6c8fe81d3ab14a3abab4cf7c5d8f8047"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-b611166c05e94e50ae5bef73df4f63dd" targetConnections="id-5c34ee8c58284387acf35dfb25529774 id-1e8c72f270f04541a862f6604186f61a id-7197260151224de8be3cb929611e788a" archimateElement="id-2cb2fcd47b044d70bea4821d0b9be44d">
+        <bounds x="105" y="141" width="139" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-79a6a32482e74fb2a430bae5641d491d" source="id-b611166c05e94e50ae5bef73df4f63dd" target="id-eac5f5e1bdaa47d6879894baa6ea9932" archimateRelationship="id-69d616ea34ae49d18071b176e49de310"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-e62fb6ef79df4b87a7f2735b01cb6eb0" targetConnections="id-596ea6ad755948d39e542c96eacf5b13" archimateElement="id-aba86e9c1bd644979d4ac0de28eb285c">
+        <bounds x="638" y="48" width="157" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-de4fa741e9ea49ba81ce5bd5251d0f68" targetConnections="id-f9ece912beb44a6184599ffdbeee9f35 id-17bfdd269bef4c66be812333b1f809f8" archimateElement="id-cf7502eaf0ad4baa8988190bba76cbf9">
+        <bounds x="87" y="516" width="175" height="73"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ad6d68b8d90d4a1694e94c855d0751ad" targetConnections="id-c16236e7d8264c09bc4a0ceb31f9f76d" archimateElement="id-3f67915c150d4d13872503fcbe104067">
+        <bounds x="564" y="636" width="157" height="61"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-9bcb7eaa31734cc99fdc893d74af4ea7" targetConnections="id-19fb618d116045b9be344fa8df7d9bc5" archimateElement="id-009da76256244fbd8c31431968a79b53">
+        <bounds x="732" y="636" width="157" height="61"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-7ce08c4651de429fbaa4f820d23bbabb" targetConnections="id-007e7182319342c68f6f574476c72cba" archimateElement="id-d470b100943c41ffbcec17fe9d590d9d">
+        <bounds x="636" y="141" width="162" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-596ea6ad755948d39e542c96eacf5b13" source="id-7ce08c4651de429fbaa4f820d23bbabb" target="id-e62fb6ef79df4b87a7f2735b01cb6eb0" archimateRelationship="id-4f812e029942408d8489b9c055845bca"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-d1c9f806c47249c08c723468aeb96fad" targetConnections="id-a28daac36b784f7c879bf1ab45ebbc4d" archimateElement="id-6ef7827ab2f544d6b778b943b352bed5">
+        <bounds x="646" y="345" width="142" height="67"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-007e7182319342c68f6f574476c72cba" source="id-d1c9f806c47249c08c723468aeb96fad" target="id-7ce08c4651de429fbaa4f820d23bbabb" archimateRelationship="id-9e24263dee4d4dc496c9a8ceaaaa1107"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ed63acf11ca94e1fbdb6d0301879f461" archimateElement="id-3bfc0d0074974d1c907f860fc4ff7408">
+        <bounds x="638" y="516" width="175" height="73"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-a28daac36b784f7c879bf1ab45ebbc4d" source="id-ed63acf11ca94e1fbdb6d0301879f461" target="id-d1c9f806c47249c08c723468aeb96fad" archimateRelationship="id-bec971fa56f94167ac655f303e981c31"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c16236e7d8264c09bc4a0ceb31f9f76d" source="id-ed63acf11ca94e1fbdb6d0301879f461" target="id-ad6d68b8d90d4a1694e94c855d0751ad" archimateRelationship="id-2f2b12356ac649d99750b3af70132b42"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-19fb618d116045b9be344fa8df7d9bc5" source="id-ed63acf11ca94e1fbdb6d0301879f461" target="id-9bcb7eaa31734cc99fdc893d74af4ea7" archimateRelationship="id-963b91ecd594495592570bb8327ab890"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-4b51ce3ee4bd47ecbce436ea8d82b521" archimateElement="id-bc6bf0163baf46fea379f274b7f8cdcf">
+        <bounds x="127" y="429" width="101" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-0ecdaa6456834394840c374f181c7fd8" source="id-4b51ce3ee4bd47ecbce436ea8d82b521" target="id-8aa8343970db4771a0a4d10c6a7f4e49" archimateRelationship="id-3e6ed79b2ef14bc7b1d65bb05171f7b1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-17bfdd269bef4c66be812333b1f809f8" source="id-4b51ce3ee4bd47ecbce436ea8d82b521" target="id-de4fa741e9ea49ba81ce5bd5251d0f68" archimateRelationship="id-8c98818f837e4de280ad0f30944a9a99"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-204d2d1053b34a00b151a98fbb1d10a7" archimateElement="id-1f6e36d4cae345cb9e7815636e9e4833">
+        <bounds y="429" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-f77c76d9412a493ebf483b2c708e7eac" source="id-204d2d1053b34a00b151a98fbb1d10a7" target="id-8aa8343970db4771a0a4d10c6a7f4e49" archimateRelationship="id-65ff5279de4c4b3ebe2e2be5b45e706c"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-f9ece912beb44a6184599ffdbeee9f35" source="id-204d2d1053b34a00b151a98fbb1d10a7" target="id-de4fa741e9ea49ba81ce5bd5251d0f68" archimateRelationship="id-d1d1b9264cb644b686b39c5b279fd078"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-a97eb5c8ecd24e95a3d464f292010dc1" archimateElement="id-b0b42d0e89104d5aac2375dce2f726af">
+        <bounds x="312" y="396" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-3d9c3badbfe84dc0a15fb1013b37815d" source="id-a97eb5c8ecd24e95a3d464f292010dc1" target="id-8aa8343970db4771a0a4d10c6a7f4e49" archimateRelationship="id-9fb3ceae22bf4413bff7a658b670a51f"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-55fd098ff691462ebb22df827fda9526" archimateElement="id-ae9b28c4f7704b6bab6135b79018df4e">
+        <bounds x="312" y="462" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-7c7574bfe7b0480db1d07538561722cb" source="id-55fd098ff691462ebb22df827fda9526" target="id-8aa8343970db4771a0a4d10c6a7f4e49" archimateRelationship="id-c03293785416430e91684f51cac958b2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-f5810474b3cc4147b2d4f58117b959af" archimateElement="id-fa48ea766a0d410aba0e3a96fd9b5e3f">
+        <bounds x="312" y="525" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-1437a82afd5a4063abf561d2699ca6e4" source="id-f5810474b3cc4147b2d4f58117b959af" target="id-8aa8343970db4771a0a4d10c6a7f4e49" archimateRelationship="id-9fda5dfbd5b34225987b962c18b7484a"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-002 Hybrid Key Establishment" id="id-dc6d98479c4541ef99dceea3c1aebb7c"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-003 Data at Rest Re-encryption" id="id-720ac44444c04dfe98fc271002d357fa"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-004 Crypto Agile Abstraction Layer" id="id-ef914c769ec64fa4ac53dde366cc9b82"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-005 API Contract Evolution" id="id-f440255b4f9842368999eea0eacba0ec"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-006 HSM and KMS Upgrade" id="id-3060ebe3556b4a08a7c247678ece9125"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-007 Certificate Authority Modernization" id="id-012c680c65314166b7a051a82bb9662f"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-008 Protocol Encapsulation" id="id-41040bd9f3814a079c541f715fcadb53"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-009 Vendor Component Mitigation" id="id-73a5270700804920a7fca2fe2cd37733"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-010 Crypto Inventory and Monitoring" id="id-04be3949e4de42609902ec30274e5dcd"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-011 Secure Boot and Firmware Update" id="id-5a27108dfd694556a4198552399341ac"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-012 Email and Messaging Upgrade" id="id-eb3c8e3cc9b54343b0e65ce5f76e8742"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-013 Database Connector Hardening" id="id-c9e53eb436904b35a091c476769db11c"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-014 Mobile App Crypto Upgrade" id="id-e38bf11ca1a241b5acd9f58fd59ea0bc"/>
   </folder>
 </archimate:model>
