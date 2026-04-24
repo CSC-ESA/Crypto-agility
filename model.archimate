@@ -234,9 +234,6 @@ Integrates crypto policies, SBOM, code signing, SCA, and gate checks.</documenta
       </element>
       <element xsi:type="archimate:ApplicationComponent" name="A-CMP-15 Policy Decision Point (PDP)" id="id-4f3e85c6898f4217b8689524bde6e27c"/>
       <element xsi:type="archimate:ApplicationComponent" name="A-CMP-16 Policy Enforcement Point (PEP) Sidecar/Agent " id="id-370b28bd91be4d41a08f98c866fd05b3"/>
-      <element xsi:type="archimate:ApplicationComponent" name="A-CMP-LIB-11Oqsprovider" id="id-3ed3c9e4e26b403292ab528c1e926be5">
-        <documentation>Extends OpenSSL3.</documentation>
-      </element>
     </folder>
     <folder name="Data Pool" id="id-6738f453ad90427fae961c2a101bf0f2">
       <element xsi:type="archimate:DataObject" name="A-DAT-3 Key Material (Secure Ref / Handle)" id="id-14a335ef590545d68f4209e10bbfcf17"/>
@@ -372,6 +369,29 @@ from the developer. The generic crypto service call will then be passed on to th
       <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library Cryspen" id="id-ffbaa9bfb7ad43e0908e1005e7a7a7c2"/>
       <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library Cryptlib" id="id-479db2b2f5554b6f8080fc1ce6059a35"/>
       <element xsi:type="archimate:TechnologyInterface" name="T-INT Cryptographic Library API" id="id-906683ce70a2403295e2b0dd74887077"/>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library mbedTLS" id="id-5925c5ea512b4735ba431e8306ed5149">
+        <documentation>Lightweight TLS/crypto for embedded/IoT.</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library Botan" id="id-09de53cef5ce4b5898dec113f3b5b954">
+        <documentation>C++ crypto library with broad algorithm coverage</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library Libgcrypt" id="id-5de19f6bc5924e69b70a4d705218fa40">
+        <documentation>Crypto backend for GnuPG.&#xD;
+</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library GnuTLS" id="id-dcd66e7d53ae4754b6f128cc53b93550">
+        <documentation>GNU’s TLS + crypto stack</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library Crypto++" id="id-9db0ecd99bb54ae798f7b230a0a6ab36">
+        <documentation>Long standing C++ crypto library.</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library CommonCrypto (Apple)" id="id-5f24694ce69b4be4b952c1c3e979a91d">
+        <documentation>MacOS/iOS crypto framework.</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library CryptoAPI/CNG" id="id-4824233afb9144d58d527b1a39e9ed8a">
+        <documentation>Microsoft’s OS level crypto stack.</documentation>
+      </element>
+      <element xsi:type="archimate:SystemSoftware" name="T-SYS Cryptographic Library OqsProvider" id="id-dbcfa9d46ea74356b02599944f297c8f"/>
     </folder>
   </folder>
   <folder name="Motivation" id="id-310a8d8634e34c06becc21ea8044ec51" type="motivation">
@@ -1423,7 +1443,7 @@ The shadow module architecture principle (commonly known in software engineering
     <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-004 Crypto Agile Abstraction Layer - Edge" id="id-0a2a6c4602674a4480e2fc8bd56da0fe"/>
     <element xsi:type="archimate:ArchimateDiagramModel" name="PQC-004 Crypto Agile Abstraction Layer - Cryptographic Provider" id="id-6ed38b5e47994d849dc9eed3bccdac9b">
       <child xsi:type="archimate:DiagramObject" id="id-87dcc973d362483f893b906fc314cef6" archimateElement="id-4c7a95aaeed94b5f857727714905280b">
-        <bounds x="432" y="48" width="133" height="55"/>
+        <bounds x="433" y="48" width="133" height="55"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-410ea32b96a74d26bca04a76cdffd5dc" archimateElement="id-1ff28811a91c4c9aa85b3f0de544ad3e">
         <bounds x="66" y="48" width="120" height="55"/>
@@ -1433,39 +1453,60 @@ The shadow module architecture principle (commonly known in software engineering
         <bounds x="222" y="48" width="133" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-4dd1214be53941bb8855e676d3779d1a" source="id-efdb2b7aa9b4430caf58840a1303756d" target="id-2b1a381be237433e8893d1c32bfba044" archimateRelationship="id-8a485e53a758486c98121fe3b48fd0fb"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-fc79c90289814f2899fc69207bee7b26" archimateElement="id-3ed3c9e4e26b403292ab528c1e926be5">
-        <bounds x="756" y="180" width="120" height="55"/>
-      </child>
       <child xsi:type="archimate:Group" id="id-27df62de9f1e4e56b63320dd3f423264" name="Cryptographic Libraries" textAlignment="1">
-        <bounds x="744" y="308" width="301" height="448"/>
+        <bounds x="744" y="36" width="301" height="805"/>
         <child xsi:type="archimate:DiagramObject" id="id-f29406e281774a88b5938b1d247dad44" archimateElement="id-52d8bb8fac9247f7835b64f0ca6248e2">
-          <bounds x="162" y="287" width="120" height="72"/>
+          <bounds x="156" y="539" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-66d21371372f42f281312ea76b35b381" archimateElement="id-007ffe664d23447e93cb790684806e31">
-          <bounds x="162" y="195" width="120" height="72"/>
+          <bounds x="156" y="456" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-147afa04b5d649c0990ae6092c594631" archimateElement="id-ffbaa9bfb7ad43e0908e1005e7a7a7c2">
-          <bounds x="12" y="288" width="120" height="69"/>
+          <bounds x="12" y="540" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-9d660c5ad4914b9e874ef833078294cd" archimateElement="id-f6ec823bb35e4f9fae75865d88257a80">
-          <bounds x="12" y="372" width="120" height="60"/>
+          <bounds x="12" y="624" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-4175b906d31e4455a9e31f792e63fd25" archimateElement="id-d123303d4e41477f8ccf50ae0329d227">
-          <bounds x="12" y="195" width="120" height="72"/>
+          <bounds x="12" y="456" width="120" height="73"/>
           <sourceConnection xsi:type="archimate:Connection" id="id-ae0ad77d8d5749498910d179f93d2c9d" source="id-4175b906d31e4455a9e31f792e63fd25" target="id-360fcb0eefa549af94353a778989a276" archimateRelationship="id-20986824084647f5bfb78150a353cc4c"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-96bee7d5c31a423aaa0af453b03792ac" archimateElement="id-479db2b2f5554b6f8080fc1ce6059a35">
-          <bounds x="162" y="31" width="120" height="69"/>
+          <bounds x="156" y="288" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-20e3e36221cb40cb9a2312a095ba61ae" archimateElement="id-70f0385adf7a4f1fa96ce0e8b934a98a">
-          <bounds x="162" y="111" width="120" height="72"/>
+          <bounds x="156" y="372" width="120" height="73"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-b6e4f389ca9540e8a3ac0968da7f8000" archimateElement="id-13396ab874664dc9b0bf58fa720ee93d">
-          <bounds x="12" y="31" width="120" height="69"/>
+          <bounds x="12" y="288" width="120" height="73"/>
           <sourceConnection xsi:type="archimate:Connection" id="id-48bbea0a30ad4c55a0d2e8e05a6a5964" source="id-b6e4f389ca9540e8a3ac0968da7f8000" target="id-861fa41aa8484debb927092ba836a451" archimateRelationship="id-2ec4f03899354fe5b6fef374fd7562d8"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-8ee0ba846eda4ae38913741ae6b359f6" archimateElement="id-b2fa50c42b974cb2970ac5bac6bcc999">
-          <bounds x="12" y="111" width="120" height="72"/>
+          <bounds x="12" y="372" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-f4fdb336d2504743a484ff0a931375ed" archimateElement="id-5925c5ea512b4735ba431e8306ed5149">
+          <bounds x="156" y="624" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-0cac2bb8ce7141bcbea9d29c729ced59" archimateElement="id-09de53cef5ce4b5898dec113f3b5b954">
+          <bounds x="12" y="204" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-9a99606884b04175961aaca5d60015a1" archimateElement="id-5de19f6bc5924e69b70a4d705218fa40">
+          <bounds x="156" y="204" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-e7d6e5bf2c59471fa8f80b502650d490" archimateElement="id-dcd66e7d53ae4754b6f128cc53b93550">
+          <bounds x="12" y="120" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-cd22a8b19211489789a8ace06176a04f" archimateElement="id-9db0ecd99bb54ae798f7b230a0a6ab36">
+          <bounds x="156" y="120" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-4a6e1ba3f9ea4d2691527d9fdce3edfc" archimateElement="id-5f24694ce69b4be4b952c1c3e979a91d">
+          <bounds x="12" y="36" width="120" height="71"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-5cca9ddacea74026acd54ef4c44a8f13" archimateElement="id-4824233afb9144d58d527b1a39e9ed8a">
+          <bounds x="156" y="35" width="120" height="73"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-45fecf174dd341548063eafe71c881ae" archimateElement="id-dbcfa9d46ea74356b02599944f297c8f">
+          <bounds x="12" y="708" width="120" height="72"/>
         </child>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-249378de60a943d8af8538223356a084" targetConnections="id-0bf196e8e0a047c686ac817e9e4e1131 id-74031da5fae44d51988e518b2eac9b0b" archimateElement="id-46f5ee84ece3438ab4e1e977d959d64c">
@@ -1513,7 +1554,7 @@ The shadow module architecture principle (commonly known in software engineering
         <sourceConnection xsi:type="archimate:Connection" id="id-f165ebb4a26a4274ad5fad16edfe450f" source="id-360fcb0eefa549af94353a778989a276" target="id-a56fb12945bb40c6902ec3b34def9f36" archimateRelationship="id-53a2393694034d4fb2baab5f0fe463e8"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-a56fb12945bb40c6902ec3b34def9f36" targetConnections="id-f165ebb4a26a4274ad5fad16edfe450f id-2c9f9c6cd2c84ba993bdea16557db903" archimateElement="id-46f5ee84ece3438ab4e1e977d959d64c">
-        <bounds x="433" y="512" width="120" height="55"/>
+        <bounds x="426" y="512" width="120" height="55"/>
       </child>
     </element>
   </folder>
